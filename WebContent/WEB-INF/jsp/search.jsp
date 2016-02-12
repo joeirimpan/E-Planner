@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h2>Search</h2>
+<h2>Search For Destinations</h2>
 <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
    	<table>
    
