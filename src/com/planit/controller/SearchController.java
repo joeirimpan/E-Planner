@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.HtmlUtils;
 
 import com.planit.model.UserConstraints;
+import com.planit.repository.JenaSemanticRepositoryManager;
 
 @Controller
 public class SearchController {
@@ -46,6 +47,8 @@ public class SearchController {
 		System.out.println("activities :"+userConstraints.getActivities());
 		System.out.println("sPoolSelected :"+userConstraints.issPoolSelected());
 		System.out.println("fitnessRoomSelected :"+userConstraints.isFitnessRoomSelected());
+		
+		//JenaSemanticRepositoryManager test = new JenaSemanticRepositoryManager();
 		
 		
 		ModelAndView model = new ModelAndView("result");

@@ -1,8 +1,13 @@
 package com.planit.repository;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import com.planit.util.PropertyManager;
+
 
 public class SemanticRepositoryManager {
 	
@@ -14,6 +19,27 @@ public class SemanticRepositoryManager {
 	public final List kbFiles = loadKbFiles();
 	static final String ONTOLOGY_FILES_TAG = "ontologyFiles";
 	static final String KB_FILES_TAG = "kbFiles"; 
+	static final String CONFIG_FILE = "SemanticRepositoryManager.properties";
+	static {
+        InputStream in = PropertyManager.openInputStream(CONFIG_FILE);
+        if (in != null) {
+           try {
+               configProps.load(in);
+               System.out.println(configProps.toString());
+           } catch (IOException e) {
+        	   System.out.println("Error loading configuration"+e.toString());
+           } finally {
+               try {
+                   if (in != null)
+                       in.close();
+               } catch (IOException e) {
+               	e.printStackTrace();
+               }
+           }
+       }
+    }
+	
+	
 
 	static final String base = "http://www.owl-ontologies.com/travel_dest.owl";
 	// properties
@@ -57,6 +83,10 @@ public class SemanticRepositoryManager {
 	final String threeStarRating = new StringBuffer(baseTravel).append("#ThreeStarRating").toString();
 	final String fourStarRating = new StringBuffer(baseTravel).append("#FourStarRating").toString();
 	final String fiveStarRating = new StringBuffer(baseTravel).append("#FiveStarRating").toString();
+	
+	
+	/*ontologyFiles=travel_dest.owl
+	kbFiles=travel_d.owl,travel_new.owl*/
 
 	public List loadOntologyFiles() {
 
