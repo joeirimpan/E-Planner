@@ -1,4 +1,4 @@
-package com.planit;
+package com.planit.model;
 
 import java.util.ArrayList;
 
