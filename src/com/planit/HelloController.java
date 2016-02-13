@@ -36,6 +36,16 @@ public class HelloController {
 
 	@RequestMapping(value = "/addConstraints", method = RequestMethod.POST)
 	public ModelAndView addConstraints(@ModelAttribute("userconstraints") UserConstraints userConstraints, BindingResult result) {
+		
+		System.out.println("destinationName :"+userConstraints.getDestinationName());
+		System.out.println("ratingSelected :"+userConstraints.getRatingSelected());
+		System.out.println("parkingSelected :"+userConstraints.isParkingSelected());
+		System.out.println("board :"+userConstraints.getBoard());
+		System.out.println("activities :"+userConstraints.getActivities());
+		System.out.println("sPoolSelected :"+userConstraints.issPoolSelected());
+		System.out.println("fitnessRoomSelected :"+userConstraints.isFitnessRoomSelected());
+		
+		
 		ModelAndView model = new ModelAndView("result");
 		return model;
 	}

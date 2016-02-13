@@ -11,6 +11,13 @@ public class UserConstraints {
 	private boolean sPoolSelected;
 	private boolean fitnessRoomSelected;
 	
+	public UserConstraints(){
+		this.destinationName = "";
+		this.ratingSelected = -1;
+		this.board = "";
+		this.activities = new ArrayList<String>();
+	}
+	
 	public String getDestinationName() {
 		return destinationName;
 	}
@@ -38,8 +45,8 @@ public class UserConstraints {
 	public ArrayList<String> getActivities() {
 		return activities;
 	}
-	public void setActivities(ArrayList<String> activities) {
-		this.activities = activities;
+	public void setActivities(String activity) {
+		this.activities.add(activity);
 	}
 	public boolean issPoolSelected() {
 		return sPoolSelected;
