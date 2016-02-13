@@ -30,11 +30,12 @@
     
     <tr>
     	<td>Activities</td>
-    	<c:forEach items="${userconstraints.activities}" var="activity">
+    	<td>${userconstraints.activities}</td>
+    	<%-- <c:forEach items="${userconstraints.activities}" var="activity">
     	<tr>
-      	<td><c:out value="${activity}" /><h4>j</h4></td>
+      	<td><c:out value="${activity}" /></td>
     	</tr>
-  		</c:forEach>
+  		</c:forEach> --%>
   	</tr>
     
     <tr>
