@@ -13,7 +13,7 @@ import org.apache.jena.rdf.model.Resource;
 public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 	
 	
-	
+	//user.home gives the location of user's home dir eg, C:/Users/lenovo/
 	static final String ROOT_DIR = new StringBuffer(System.getProperty("user.home")).append("/").append("KIM").append("/").append("ROOT").append("/").toString();
 	static final String ONTOLOGIES_ROOT_DIR = new StringBuffer(ROOT_DIR).append("ontologies").append("/").toString();
     static final String KB_ROOT_DIR = new StringBuffer(ROOT_DIR).append("kb").append("/").toString();
@@ -166,7 +166,12 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			String filePath = new StringBuffer(ONTOLOGIES_ROOT_DIR).append(
 					(String) i.next()).toString();
 			try {
-				m.read(new FileInputStream(filePath), "RDF/XML-ABBREV");
+				
+				/*For input, both of these are the same, and fully implement the RDF Syntax Recommendation, see conformance.
+				For output, "RDF/XML", produces regular output reasonably efficiently, but it is not readable. 
+				In contrast, "RDF/XML-ABBREV", produces readable output without much regard to efficiency.*/
+				
+				System.out.println(m.read(new FileInputStream(filePath), "RDF/XML-ABBREV"));
 			} catch (FileNotFoundException fe) {
 				fe.printStackTrace();
 			}
