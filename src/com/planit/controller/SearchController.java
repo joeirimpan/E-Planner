@@ -1,4 +1,4 @@
-package com.planit;
+package com.planit.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,8 +25,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.HtmlUtils;
 
+import com.planit.model.UserConstraints;
+
 @Controller
-public class HelloController {
+public class SearchController {
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public ModelAndView initApp() {
