@@ -4,18 +4,19 @@ import java.util.ArrayList;
 
 public class UserConstraints {
 	private String destinationName;
-	private int ratingSelected;//1,2,3,4
+	private String ratingSelected;//1,2,3,4
 	private boolean parkingSelected;//true or false
 	private String board;//allInclusive,breakfast,fullboard,halfboard
 	private ArrayList<String> activities;//hiking,surfing,skiing,shopping,sightseeing
 	private boolean sPoolSelected;
 	private boolean fitnessRoomSelected;
+	private String transport;//Bus,Plane,Train,Auto
 	
 	public UserConstraints(){
 		this.destinationName = "";
-		this.ratingSelected = -1;
 		this.board = "";
 		this.activities = new ArrayList<String>();
+		this.transport = "";
 	}
 	
 	public String getDestinationName() {
@@ -24,10 +25,10 @@ public class UserConstraints {
 	public void setDestinationName(String destinationName) {
 		this.destinationName = destinationName;
 	}
-	public int getRatingSelected() {
+	public String getRatingSelected() {
 		return ratingSelected;
 	}
-	public void setRatingSelected(int ratingSelected) {
+	public void setRatingSelected(String ratingSelected) {
 		this.ratingSelected = ratingSelected;
 	}
 	public boolean isParkingSelected() {
@@ -59,6 +60,14 @@ public class UserConstraints {
 	}
 	public void setFitnessRoomSelected(boolean fitnessRoomSelected) {
 		this.fitnessRoomSelected = fitnessRoomSelected;
+	}
+
+	public String getTransport() {
+		return transport;
+	}
+
+	public void setTransport(String transport) {
+		this.transport = transport;
 	}
 	
 	

@@ -16,7 +16,16 @@
     
     <tr>
         <td><form:label path="ratingSelected">Rating Selected</form:label></td>
-        <td><form:input path="ratingSelected" /></td>
+        <td>
+        <form:select path="ratingSelected">
+             <form:option value="one">one star rating</form:option>
+             <form:option value="two">two star rating</form:option>
+             <form:option value="three">three star rating</form:option>
+             <form:option value="four">four star rating</form:option>
+             <form:option value="five">five star rating</form:option>
+        </form:select>
+        
+        </td>
     </tr>
     
     <tr>
@@ -50,6 +59,11 @@
     <tr>
         <td><form:label path="fitnessRoomSelected">Fitness Room</form:label></td>
         <td><form:input path="fitnessRoomSelected" /></td>
+    </tr>
+    
+    <tr>
+        <td><form:label path="transport">Transport Service</form:label></td>
+        <td><form:input path="transport" /></td>
     </tr>
     
     <tr>

@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
@@ -30,7 +32,14 @@ import com.planit.repository.JenaSemanticRepositoryManager;
 
 @Controller
 public class SearchController {
-
+	
+	
+	private List destinations;
+	
+	public SearchController(){
+		this.destinations = new ArrayList<>();
+	}
+	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public ModelAndView initApp() {
 		ModelAndView model = new ModelAndView("search","userconstraints",new UserConstraints());
@@ -48,12 +57,19 @@ public class SearchController {
 		System.out.println("sPoolSelected :"+userConstraints.issPoolSelected());
 		System.out.println("fitnessRoomSelected :"+userConstraints.isFitnessRoomSelected());
 		
-		//JenaSemanticRepositoryManager test = new JenaSemanticRepositoryManager();
+		JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
+		destinations = repomanager.searchDestinations(userConstraints);
+		
+		for(int i=0;i<destinations.size();i++)
+			System.out.println(destinations.get(i));
+			
 		
 		
 		ModelAndView model = new ModelAndView("result");
 		return model;
 	}
+	
+	
 
 	/*
 	 * public ArrayList<String> runSPARQL(){

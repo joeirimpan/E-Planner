@@ -47,6 +47,11 @@
         <td>Fitness Room</td>
         <td>${userconstraints.fitnessRoomSelected}</td>
     </tr>
+    
+    <tr>
+        <td>Transport Service</td>
+        <td>${userconstraints.transport}</td>
+    </tr>
 	</table>  
 </body>
 </html>
