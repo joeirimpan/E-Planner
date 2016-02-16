@@ -259,21 +259,27 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 
 		String activityChoice = null;
 		
-		ArrayList<String> activities = userConstraints.getActivities();
+		ArrayList<String> activities = new ArrayList<String>();
+		activities = userConstraints.getActivities();
 		
-		if (activities != null) {
+		//null getting appended to list when there is no selection from the list
+		if (!userConstraints.getActivities().contains(null)) {
+			
 			//Iterate through activities and append the activities to the query string
 			for (int i = 0; i < activities.size(); i++) {
+				
+				//Printing activities
+				System.out.println(activities.get(i));
 
-				if (activities.get(i) == "hiking")
+				if (activities.get(i).equals("hiking"))
 					activityChoice = hiking;
-				if (activities.get(i) == "surfing")
+				if (activities.get(i).equals("surfing"))
 					activityChoice = surfing;
-				if (activities.get(i) == "skiing")
+				if (activities.get(i).equals("skiing"))
 					activityChoice = skiing;
-				if (activities.get(i) == "shopping")
+				if (activities.get(i).equals("shopping"))
 					activityChoice = shopping;
-				if (activities.get(i) == "sightseeing")
+				if (activities.get(i).equals("sightseeing"))
 					activityChoice = sightSeeing;
 
 				queryString = queryString + "?x <" + hasActivity + "> ?a . ?a <" + type + "> <" + activityChoice
@@ -281,21 +287,26 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 				
 			}
 		}
+		
 		// queryString = queryString + "} }";
 		queryString = queryString + " }";
-		List resultsList = new ArrayList<>();
+		List<OntResource> resultsList = new ArrayList<>();
 		
 		//System.out.println("queryString:::::::::::" + queryString);
 
 		Query query = QueryFactory.create(queryString);
+		
+		
+		System.out.println("Model size :"+model.size());
 		QueryExecution qexec = QueryExecutionFactory.create(query, (OntModel) getModel());
 		ResultSet results = qexec.execSelect();
+		
+		System.out.println("Results hasNext() :"+results.hasNext());
+		
 		try {
-			for (; results.hasNext();) {
-				QuerySolution soln = results.nextSolution();
-				System.out.println("Result QuerySolution"+soln.toString());
-				
-				
+			for (;results.hasNext();) {
+				System.out.println("Result exits");
+				QuerySolution soln = results.nextSolution();			
 				RDFNode x = soln.get("x");
 				resultsList.add(x.as(OntResource.class));
 			}
@@ -303,17 +314,18 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			qexec.close();
 		}
 
-		Iterator i = resultsList.iterator();
+		Iterator<OntResource> i = resultsList.iterator();
 
-		List l = new ArrayList<>();
+		List<Map<String,String>> l = new ArrayList<>();
 		while (i.hasNext()) {
-			Map m = new HashMap<>();
-			OntResource o = (OntResource) i.next();
+			Map<String,String> m = new HashMap<String,String>();
+			OntResource o = i.next();
 
 			String destinationURI = "";
 			if (o.getProperty((((OntModel) getModel()).getProperty(hasURL))) != null)
 				destinationURI = ((Literal) (o.getProperty((((OntModel) getModel()).getProperty(hasURL))).getObject()))
 						.getString();
+			
 			m.put("uri", o.getURI());
 			m.put("localName", o.getLocalName());
 			m.put("destinationURI", destinationURI);

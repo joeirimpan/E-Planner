@@ -18,11 +18,11 @@
         <td><form:label path="ratingSelected">Rating Selected</form:label></td>
         <td>
         <form:select path="ratingSelected">
-             <form:option value="OneStarRating">one star rating</form:option>
-             <form:option value="TwoStarRating">two star rating</form:option>
-             <form:option value="ThreeStarRating">three star rating</form:option>
-             <form:option value="FourStarRating">four star rating</form:option>
-             <form:option value="FiveStarRating">five star rating</form:option>
+             <form:option value="one">one star rating</form:option>
+             <form:option value="two">two star rating</form:option>
+             <form:option value="three">three star rating</form:option>
+             <form:option value="four">four star rating</form:option>
+             <form:option value="five">five star rating</form:option>
         </form:select>
         
         </td>
