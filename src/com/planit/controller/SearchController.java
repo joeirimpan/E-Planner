@@ -1,32 +1,16 @@
 package com.planit.controller;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.jena.ontology.OntModel;
-import org.apache.jena.ontology.OntModelSpec;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.HtmlUtils;
-
 import com.planit.model.UserConstraints;
 import com.planit.repository.JenaSemanticRepositoryManager;
 
@@ -34,7 +18,7 @@ import com.planit.repository.JenaSemanticRepositoryManager;
 public class SearchController {
 	
 	
-	private List destinations;
+	private List<Map<String,String>> destinations;
 	
 	public SearchController(){
 		this.destinations = new ArrayList<>();
@@ -47,7 +31,7 @@ public class SearchController {
 	}
 
 	@RequestMapping(value = "/addConstraints", method = RequestMethod.POST)
-	public ModelAndView addConstraints(@ModelAttribute("userconstraints") UserConstraints userConstraints, BindingResult result) {
+	public ModelAndView addConstraints(@ModelAttribute("userconstraints") UserConstraints userConstraints, BindingResult result, Model model1) {
 		
 		System.out.println("destinationName :"+userConstraints.getDestinationName());
 		System.out.println("ratingSelected :"+userConstraints.getRatingSelected());
@@ -56,6 +40,7 @@ public class SearchController {
 		System.out.println("activities :"+userConstraints.getActivities());
 		System.out.println("sPoolSelected :"+userConstraints.issPoolSelected());
 		System.out.println("fitnessRoomSelected :"+userConstraints.isFitnessRoomSelected());
+		System.out.println("transport :"+userConstraints.getTransport());
 		
 		JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
 		destinations = repomanager.searchDestinations(userConstraints);
@@ -64,8 +49,8 @@ public class SearchController {
 			System.out.println(destinations.get(i));
 			
 		
-		
 		ModelAndView model = new ModelAndView("result");
+		model.addObject("queryresult",destinations);
 		return model;
 	}
 	

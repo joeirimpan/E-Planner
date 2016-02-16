@@ -15,8 +15,8 @@ public class SemanticRepositoryManager {
 	static final Properties defaultProps = new Properties();
 	static final Properties configProps = new Properties(defaultProps);
 
-	public final List ontologyFiles = loadOntologyFiles();
-	public final List kbFiles = loadKbFiles();
+	public final List<String> ontologyFiles = loadOntologyFiles();
+	public final List<String> kbFiles = loadKbFiles();
 	static final String ONTOLOGY_FILES_TAG = "ontologyFiles";
 	static final String KB_FILES_TAG = "kbFiles"; 
 	static final String CONFIG_FILE = "SemanticRepositoryManager.properties";
@@ -88,11 +88,11 @@ public class SemanticRepositoryManager {
 	/*ontologyFiles=travel_dest.owl
 	kbFiles=travel_d.owl,travel_new.owl*/
 
-	public List loadOntologyFiles() {
+	public List<String> loadOntologyFiles() {
 
 		Properties props = new Properties(configProps);
 		try {
-			List ontologyFilesList = new ArrayList<>();
+			List<String> ontologyFilesList = new ArrayList<>();
 			String ontologyFile = props.getProperty(ONTOLOGY_FILES_TAG);
 			String[] ontologyFilesSeparated = ontologyFile.split(",");
 			for (int j = 0; j < ontologyFilesSeparated.length; j++) {
@@ -106,10 +106,10 @@ public class SemanticRepositoryManager {
 	}
 	
 
-	public List loadKbFiles() {
+	public List<String> loadKbFiles() {
 		Properties props = new Properties(configProps);
 		try {
-			List kbFilesList = new ArrayList<>();
+			List<String> kbFilesList = new ArrayList<>();
 			String kbFilesString = props.getProperty(KB_FILES_TAG);
 			String[] kbFilesSeparated = kbFilesString.split(",");
 			for (int k = 0; k < kbFilesSeparated.length; k++) {

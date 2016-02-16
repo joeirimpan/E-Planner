@@ -159,7 +159,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		// first load ontologies into model
 		// Iterator i =
 		// getServiceManager().getSemanticRepositoryOntologyFiles().iterator();
-		Iterator i = ontologyFiles.iterator();
+		Iterator<String> i = ontologyFiles.iterator();
 
 		while (i.hasNext()) {
 			String filePath = new StringBuffer(ONTOLOGIES_ROOT_DIR).append((String) i.next()).toString();
@@ -183,7 +183,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 
 		// Iterator it =
 		// getServiceManager().getSemanticRepositoryKbFiles().iterator();
-		Iterator it = kbFiles.iterator();
+		Iterator<String> it = kbFiles.iterator();
 		while (it.hasNext()) {
 			String filePath = new StringBuffer(KB_ROOT_DIR).append((String) it.next()).toString();
 			try {
@@ -197,7 +197,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 
 	}
 
-	public List searchDestinations(UserConstraints userConstraints) {
+	public List<Map<String,String>> searchDestinations(UserConstraints userConstraints) {
 
 		boolean parkingOpen = false;
 		boolean fitnessOpen = false;
@@ -239,20 +239,21 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 				+ accommodation + "> . " + "?z <" + type + "> <" + accommodationRating + "> . " + "?z <" + label
 				+ "> ?zName . " + "FILTER regex(?zName, '" + userConstraints.getRatingSelected() + "', 'i') ";
 
-		//if (userConstraints.isParkingSelected())
+		
+		if (userConstraints.isParkingSelected())
 			queryString = queryString + "?y <" + hasParking + "> ?m . " + "?m <" + type + "> <" + parkingPlace + "> . "
 					+ "?m <" + isOpen + "> ?isOpen . " + "FILTER (?isOpen=" + parkingOpen + ") . ";
 
-		//if (userConstraints.getTransport() != null)
+		if (userConstraints.getTransport() != null)
 			queryString = queryString + "?x <" + hasTransport + "> ?t . " + "?t <" + type + "> <" + transportChoice
 					+ "> . ";
 
-		//if (userConstraints.isFitnessRoomSelected())
+		if (userConstraints.isFitnessRoomSelected())
 			queryString = queryString + "?y <" + hasFitnessRoom + "> ?f . " + "?f <" + type + "> <" + fitnessRoom
 					+ "> . " + "?f <" + isOpenFitnessRoom + "> ?isOpenFittnessRoom . " + "FILTER (?isOpenFittnessRoom="
 					+ fitnessOpen + ") . ";
 
-		//if (userConstraints.issPoolSelected())
+		if (userConstraints.issPoolSelected())
 			queryString = queryString + "?y <" + hasSwimmingPool + "> ?s . " + "?s <" + type + "> <" + swimmingPool
 					+ "> ." + "?s <" + isOpenSwimmingPool + "> ?isOpenSwimmingPool . " + "FILTER (?isOpenSwimmingPool="
 					+ sPoolOpen + ") . ";
@@ -288,19 +289,16 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			}
 		}
 		
-		// queryString = queryString + "} }";
+		//queryString = queryString + "} }";
 		queryString = queryString + " }";
 		List<OntResource> resultsList = new ArrayList<>();
 		
-		//System.out.println("queryString:::::::::::" + queryString);
-
 		Query query = QueryFactory.create(queryString);
-		
-		
-		System.out.println("Model size :"+model.size());
 		QueryExecution qexec = QueryExecutionFactory.create(query, (OntModel) getModel());
 		ResultSet results = qexec.execSelect();
 		
+		System.out.println(queryString);	
+		System.out.println("Model size :"+model.size());
 		System.out.println("Results hasNext() :"+results.hasNext());
 		
 		try {
