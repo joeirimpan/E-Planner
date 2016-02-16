@@ -52,6 +52,12 @@
         <td>Transport Service</td>
         <td>${userconstraints.transport}</td>
     </tr>
-	</table>  
+	</table> 
+	
+	<h2>Query Result</h2>
+	<br>
+	<h3>
+	${queryresult}
+	</h3> 
 </body>
 </html>
