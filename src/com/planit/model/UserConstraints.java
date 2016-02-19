@@ -46,9 +46,11 @@ public class UserConstraints {
 	public ArrayList<String> getActivities() {
 		return activities;
 	}
-	public void setActivities(String activity) {
-		this.activities.add(activity);
+	
+	public void setActivities(ArrayList<String> activities) {
+		this.activities = activities;
 	}
+
 	public boolean issPoolSelected() {
 		return sPoolSelected;
 	}

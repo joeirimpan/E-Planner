@@ -264,7 +264,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		activities = userConstraints.getActivities();
 		
 		//null getting appended to list when there is no selection from the list
-		if (!userConstraints.getActivities().contains(null)) {
+		if (userConstraints.getActivities()!=null) {
 			
 			//Iterate through activities and append the activities to the query string
 			for (int i = 0; i < activities.size(); i++) {
