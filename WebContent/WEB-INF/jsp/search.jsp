@@ -2,15 +2,19 @@
 <html>
 <head>
     <title>E-Tourism Planner</title>
+    <link href="${pageContext.request.contextPath}/resources/css/materialize.css" rel="stylesheet" >
 </head>
 <body>
 
-<h2>Search For Destinations</h2>
+<div class="card-panel light-green lighten-2 center"><h2>Search For Destinations</h2></div>
 <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
-   	<table>
-   
+
+<div class="row">
+<div class="col m3 white-text">a</div>
+<div class="col m6 card-panel">
+   	<table>   
     <tr>
-        <td><form:label path="destinationName">Destination Name</form:label></td>
+        <td><form:label path="destinationName"><h4>Destination Name</h4></form:label></td>
         <td><form:input path="destinationName" /></td>
     </tr>
     
@@ -66,13 +70,20 @@
         <td><form:input path="transport" /></td>
     </tr>
     
-    <tr>
-        <td colspan="2">
-            <input type="submit" value="Submit"/>
-        </td>
-    </tr>
-    
 	</table>  
+	<div class="row">
+	<div class="col m5 white-text">a</div>
+	<div class="col m2"><input class="btn waves-effect waves-light light-green" type="submit" value="Submit"/></div>
+	<div class="col m5"></div>
+	</div>
+	
+	
+	<br>
+
+</div>
+<div class="col m3></div>
+</div>
+
 </form:form>
 </body>
 </html>
