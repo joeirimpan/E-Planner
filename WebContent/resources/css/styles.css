@@ -1,0 +1,23 @@
+
+h1 {
+	text-align:center;
+	
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+table{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+td{
+	width:200px;
+	padding:5px 0 5px 0;
+}
+
+input{
+	border:none;
+	border-bottom:solid thin;
+}
