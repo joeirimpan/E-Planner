@@ -2,10 +2,13 @@
 <html>
 <head>
     <title>E-Tourism Planner</title>
+    <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" >
+	
 </head>
 <body>
 
-<h2>Search For Destinations</h2>
+<h1>Search For Destinations</h1>
 <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
    	<table>
    
@@ -16,17 +19,25 @@
     
     <tr>
         <td><form:label path="ratingSelected">Rating Selected</form:label></td>
-        <td><form:input path="ratingSelected" /></td>
+        <td><form:radiobutton path="ratingSelected" value="1"/>1 Star 
+			<form:radiobutton path="ratingSelected" value="2"/>2 Star
+			<form:radiobutton path="ratingSelected" value="3"/>3 Star
+			<form:radiobutton path="ratingSelected" value="4"/>4 Star
+			<form:radiobutton path="ratingSelected" value="5"/>5 Star</td>
     </tr>
     
     <tr>
         <td><form:label path="parkingSelected">Parking Selected</form:label></td>
-        <td><form:input path="parkingSelected" /></td>
+        <td><form:checkbox path="parkingSelected" /></td>
     </tr>
     
     <tr>
         <td><form:label path="board">Food Board</form:label></td>
-        <td><form:input path="board" /></td>
+        <td>
+        <form:radiobutton path="board" value="fullboard"/>Full Board
+			<form:radiobutton path="board" value="halfboard"/>Half Board
+			<form:radiobutton path="board" value="allinclusive"/>All Inclusive
+</td>
     </tr>
     
     <tr>
@@ -44,12 +55,12 @@
    
     <tr>
         <td><form:label path="sPoolSelected">Swimming Pool</form:label></td>
-        <td><form:input path="sPoolSelected" /></td>
+        <td><form:checkbox path="sPoolSelected" /></td>
     </tr>
     
     <tr>
         <td><form:label path="fitnessRoomSelected">Fitness Room</form:label></td>
-        <td><form:input path="fitnessRoomSelected" /></td>
+        <td><form:checkbox path="fitnessRoomSelected" /></td>
     </tr>
     
     <tr>
