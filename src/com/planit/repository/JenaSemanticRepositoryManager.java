@@ -356,6 +356,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		ResultSet results = qexec.execSelect();
 		
 		try {
+			
 			for (;results.hasNext();) {
 				System.out.println("Result exits");
 				QuerySolution soln = results.nextSolution();			
