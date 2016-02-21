@@ -313,7 +313,9 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		}
 
 		Iterator<OntResource> i = resultsList.iterator();
-
+		
+		String localName = "";
+		
 		List<Map<String,String>> l = new ArrayList<>();
 		while (i.hasNext()) {
 			Map<String,String> m = new HashMap<String,String>();
@@ -327,10 +329,43 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			m.put("uri", o.getURI());
 			m.put("localName", o.getLocalName());
 			m.put("destinationURI", destinationURI);
+			localName = o.getLocalName();
 			l.add(m);
 			System.out.println("result: " + m);
 		}
+		executeTestQuery(localName);
 		return l;
+	}
+	
+	public void executeTestQuery(String localName){
+		//Test query for surfing place name
+		System.out.println(localName+"_Hiking");
+		final String hikingName = new StringBuffer(base).append("#"+localName+"_Hiking").toString();
+		
+		String queryString = "SELECT ?labelt " + "WHERE {?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + "<" + destination + "> ." 
+				+ "?x <" + label + "> \"Sydney\" . " 
+				+ "?x <" + hasActivity + "> ?t . "
+				+ "?t <" + type + "> <" + surfing + "> ."
+				+ "?t <" + label + "> ?labelt"
+				+ " }";
+		
+		System.out.println("Running 2nd query now!");
+		
+		Query query = QueryFactory.create(queryString);
+		QueryExecution qexec = QueryExecutionFactory.create(query, (OntModel) getModel());
+		ResultSet results = qexec.execSelect();
+		
+		try {
+			for (;results.hasNext();) {
+				System.out.println("Result exits");
+				QuerySolution soln = results.nextSolution();			
+				RDFNode x = soln.get("labelt");
+				System.out.println(x.toString());
+			}
+		} finally {
+			qexec.close();
+		}
+		
 	}
 
 }
