@@ -23,13 +23,13 @@ public class SearchController {
 		this.destinations = new ArrayList<>();
 	}
 
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/search.html", method = RequestMethod.GET)
 	public ModelAndView initApp() {
 		ModelAndView model = new ModelAndView("search", "userconstraints", new UserConstraints());
 		return model;
 	}
 
-	@RequestMapping(value = "/addConstraints", method = RequestMethod.POST)
+	@RequestMapping(value = "/addConstraints.html", method = RequestMethod.POST)
 	public ModelAndView addConstraints(@ModelAttribute("userconstraints") UserConstraints userConstraints,
 			BindingResult result, Model model1) {
 

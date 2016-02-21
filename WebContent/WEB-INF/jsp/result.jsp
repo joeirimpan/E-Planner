@@ -3,6 +3,9 @@
 <html>
 <head>
     <title>Output</title>
+    <link href="${pageContext.request.contextPath}/resources/css/materialize.css" rel="stylesheet" >
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/materialize.js"></script>
 </head>
 <body>
 

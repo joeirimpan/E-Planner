@@ -3,11 +3,13 @@
 <head>
     <title>E-Tourism Planner</title>
     <link href="${pageContext.request.contextPath}/resources/css/materialize.css" rel="stylesheet" >
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/materialize.js"></script>
 </head>
 <body>
 
-<div class="card-panel light-green lighten-2 center"><h2>Search For Destinations</h2></div>
-<form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
+<div class="card-panel lighten-2 center teal"><h2>Search For Destinations</h2></div>
+<%-- <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
 
 <div class="row">
 <div class="col m3 white-text">a</div>
@@ -46,11 +48,11 @@
    		<td><form:label path="activities">Activities</form:label></td>
     	<td>
     	<form:select path="activities" multiple="true">
-             <form:option value="hiking">Hiking</form:option>
-             <form:option value="surfing">Surfing</form:option>
-             <form:option value="skiing">Skiing</form:option>
-             <form:option value="shopping">Shopping</form:option>
-             <form:option value="sightseeing">Sight Seeing</form:option>
+             <option value="hiking">Hiking</option>
+             <option value="surfing">Surfing</option>
+             <option value="skiing">Skiing</option>
+             <option value="shopping">Shopping</option>
+             <option value="sightseeing">Sight Seeing</option>
         </form:select>
         </td>
 	</tr>
@@ -84,6 +86,97 @@
 <div class="col m3></div>
 </div>
 
-</form:form>
+</form:form> --%>
+
+<form action="/E-Planner/addConstraints.html" method="post">
+
+
+<div class="row">
+<div class="col m3 white-text">a</div>
+<div class="col m6 card-panel">
+<div class="col m12">
+	    <div class="row">
+        <div class="input-field col s12">
+          <input id="destinationName" type="text" class="validate">
+          <label for="destinationName">Destination Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select name="ratingSelected">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="one">one star rating</option>
+            <option value="two">two star rating</option>
+            <option value="three">three star rating</option>
+            <option value="four">Four star rating</option>
+            <option value="five">Five star rating</option>
+          </select>
+          <label>Rating Selected</label>
+        </div>
+      </div>
+            <div class="row">
+        <div class="input-field col s12">
+          <select name="board">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="one">All Inclusive</option>
+            <option value="two">Full Board</option>
+            <option value="three">Half Board</option>
+          </select>
+          <label>RFood Board</label>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          <input type="checkbox" id="parkingSelected" name="parkingSelected"/>
+          <label for="parkingSelected">Parking</label>
+        </p>
+      </div>
+     
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <select multiple name="activities">
+            <option value="" disabled selected>Choose your option</option>
+             <option value="hiking">Hiking</option>
+             <option value="surfing">Surfing</option>
+             <option value="skiing">Skiing</option>
+             <option value="shopping">Shopping</option>
+             <option value="sightseeing">Sight Seeing</option>
+          </select>
+          <label>Activities</label>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          <input type="checkbox" id="sPoolSelected" name="sPoolSelected"/>
+          <label for="sPoolSelected">Swimming Pool</label>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <input type="checkbox" id="fitnessRoomSelected" name="fitnessRoomSelected"/>
+          <label for="fitnessRoomSelected">Fitness Room</label>
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col m5 white-text">a</div>
+        <div class="col m2">
+         <button class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // Select - Single
+    $('select').material_select();
+});
+</script>
+
 </body>
 </html>

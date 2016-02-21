@@ -49,7 +49,6 @@ if (typeof(jQuery) === 'undefined') {
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  *
 */
-
 // t: current time, b: begInnIng value, c: change In value, d: duration
 jQuery.easing['jswing'] = jQuery.easing['swing'];
 
