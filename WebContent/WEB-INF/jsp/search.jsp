@@ -62,7 +62,7 @@
     
     <tr>
         <td><form:label path="fitnessRoomSelected">Fitness Room</form:label></td>
-        <td><form:input path="fitnessRoomSelected" /></td>
+        <td><form:input type="checkbox" path="fitnessRoomSelected" /></td>
     </tr>
     
     <tr>
