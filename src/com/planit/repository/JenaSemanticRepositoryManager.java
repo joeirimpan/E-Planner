@@ -360,11 +360,13 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		ResultSet results = qexec.execSelect();
 		
 		try {
-			for (;results.hasNext();) {
-				System.out.println("Result exits");
-				QuerySolution soln = results.nextSolution();			
-				RDFNode x = soln.get("labelt");
-				System.out.println(x.toString());
+			for (; results.hasNext();) {
+				QuerySolution soln = results.nextSolution();
+				for (int i = 0; i < activities.size(); i++) {
+					RDFNode x = soln.get(activities.get(i));
+					m.put(activities.get(i),x.toString());
+					System.out.println(x.toString());
+				}
 			}
 		} finally {
 			qexec.close();
