@@ -359,7 +359,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		Query query = QueryFactory.create(queryString);
 		QueryExecution qexec = QueryExecutionFactory.create(query, (OntModel) getModel());
 		ResultSet results = qexec.execSelect();
-
+		
 		try {
 			for (; results.hasNext();) {
 				QuerySolution soln = results.nextSolution();
@@ -374,5 +374,5 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		}
 
 	}
-
+		
 }
