@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
@@ -264,29 +265,31 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 
 		// null getting appended to list when there is no selection from the
 		// list
-		/*
-		 * if (userConstraints.getActivities() != null) {
-		 * 
-		 * // Iterate through activities and append the activities to the query
-		 * // string for (int i = 0; i < activities.size(); i++) {
-		 * 
-		 * // Printing activities System.out.println(activities.get(i));
-		 * 
-		 * if (activities.get(i).equals("hiking")) activityChoice = hiking; if
-		 * (activities.get(i).equals("surfing")) activityChoice = surfing; if
-		 * (activities.get(i).equals("skiing")) activityChoice = skiing; if
-		 * (activities.get(i).equals("shopping")) activityChoice = shopping; if
-		 * (activities.get(i).equals("sightseeing")) activityChoice =
-		 * sightSeeing;
-		 * 
-		 * queryString = queryString + "?x <" + hasActivity + "> ?a . ?a <" +
-		 * type + "> <" + activityChoice + "> . ";
-		 * 
-		 * } }
-		 */
+
+		if (activities != null) {
+
+			Iterator<String> activitiesIterator = activities.iterator();
+			// Iterate through activities and append the activities to the query
+			// string
+			queryString += "?x <" + hasActivity + "> ?a . " + "FILTER( ";
+			while (activitiesIterator.hasNext()) {
+				// Printing activities System.out.println(activities.get(i));
+				try {
+					queryString = queryString + "regex(STR(?a),\"" + activitiesIterator.next() + "\",'i') ";
+				} catch (NoSuchElementException e) {
+					e.printStackTrace();
+				}
+
+				if (activitiesIterator.hasNext())
+					queryString += " && ";
+			}
+			queryString += ") .";
+
+		}
 
 		// queryString = queryString + "} }";
 		queryString = queryString + " }";
+
 		List<OntResource> resultsList = new ArrayList<>();
 
 		Query query = QueryFactory.create(queryString);
@@ -334,7 +337,6 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			l.add(m);
 			System.out.println("result: " + m);
 		}
-
 		return l;
 	}
 
@@ -359,13 +361,13 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		Query query = QueryFactory.create(queryString);
 		QueryExecution qexec = QueryExecutionFactory.create(query, (OntModel) getModel());
 		ResultSet results = qexec.execSelect();
-		
+
 		try {
 			for (; results.hasNext();) {
 				QuerySolution soln = results.nextSolution();
 				for (int i = 0; i < activities.size(); i++) {
 					RDFNode x = soln.get(activities.get(i));
-					m.put(activities.get(i),x.toString());
+					m.put(activities.get(i), x.toString());
 					System.out.println(x.toString());
 				}
 			}
@@ -374,5 +376,5 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		}
 
 	}
-		
+
 }
