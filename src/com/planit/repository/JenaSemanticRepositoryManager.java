@@ -327,8 +327,9 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			m.put("destinationURI", destinationURI);
 			localName = o.getLocalName();
 
-			// Test Query
-			/* m.put("activities", */executeActivityQuery(localName, userConstraints.getActivities(), m);
+			// Test Query - Status -Working
+			// Adds activities with the spot name to the Map
+			executeActivityQuery(localName, userConstraints.getActivities(), m);
 
 			l.add(m);
 			System.out.println("result: " + m);
@@ -347,7 +348,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			queryString += "{ SELECT ?" + activities.get(i)
 					+ " WHERE {?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + "<" + destination + "> ."
 					+ "?x <" + hasActivity + "> ?t . " + "FILTER( regex( STR(?t), \"" + localName + "_"
-					+ activities.get(i) + "\", \"i\" ) ) ." + "?t <" + label + "> ?" + activities.get(i) + " } }";
+					+ activities.get(i) + "\", 'i' ) ) ." + "?t <" + label + "> ?" + activities.get(i) + " } }";
 
 		}
 
