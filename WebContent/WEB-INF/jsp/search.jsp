@@ -117,7 +117,7 @@
             <option value="two">Full Board</option>
             <option value="three">Half Board</option>
           </select>
-          <label>RFood Board</label>
+          <label>Food Board</label>
         </div>
       </div>
       <div class="row">
