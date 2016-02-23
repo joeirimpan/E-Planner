@@ -1,14 +1,9 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<html>
-<head>
-    <title>E-Tourism Planner</title>
-    <link href="${pageContext.request.contextPath}/resources/css/materialize.css" rel="stylesheet" >
-    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/materialize.js"></script>
-</head>
-<body>
 
-<div class="card-panel lighten-2 center teal"><h2>Search For Destinations</h2></div>
+
+<%@ include file="/WEB-INF/jsp/header.jsp" %>
+
+<div class="center teal-text"><h3>Search For Destinations</h3></div>
 <%-- <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
 
 <div class="row">
