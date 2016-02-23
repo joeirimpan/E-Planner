@@ -233,18 +233,20 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			break;
 		}
 
-		String queryString = "SELECT ?x " + "WHERE {?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type><" + destination
-				+ "> . " +
+		String queryString = "SELECT DISTINCT ?x " + "WHERE {?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <"
+				+ destination + "> . " +
 				// "OPTIONAL { "+
 				"?x <" + hasAccommodation + "> ?y ." + "?y <" + hasRating + "> ?z . " + "?y <" + type + "> <"
 				+ accommodation + "> . " + "?z <" + type + "> <" + accommodationRating + "> . " + "?z <" + label
-				+ "> ?zName . " + "FILTER regex(?zName, '" + userConstraints.getRatingSelected() + "', 'i') ";
+				+ "> ?zName . " + "FILTER regex(?zName, '" + userConstraints.getRatingSelected() + "', 'i') .";
 
 		if (userConstraints.isParkingSelected())
 			queryString = queryString + "?y <" + hasParking + "> ?m . " + "?m <" + type + "> <" + parkingPlace + "> . "
 					+ "?m <" + isOpen + "> ?isOpen . " + "FILTER (?isOpen=" + parkingOpen + ") . ";
 
-		if (userConstraints.getTransport() != null)
+		System.out.println("GetTransport :" + userConstraints.getTransport().isEmpty());
+
+		if (!userConstraints.getTransport().isEmpty())
 			queryString = queryString + "?x <" + hasTransport + "> ?t . " + "?t <" + type + "> <" + transportChoice
 					+ "> . ";
 
@@ -259,29 +261,39 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 					+ sPoolOpen + ") . ";
 
 		String activityChoice = null;
-
 		ArrayList<String> activities = new ArrayList<String>();
 		activities = userConstraints.getActivities();
-
-		// null getting appended to list when there is no selection from the
-		// list
 
 		if (activities != null) {
 
 			Iterator<String> activitiesIterator = activities.iterator();
 			// Iterate through activities and append the activities to the query
 			// string
-			queryString += "?x <" + hasActivity + "> ?a . " + "FILTER( ";
+			queryString += "?x <" + hasActivity + "> ?a . " + "?a <" + type + "> ?activity . " + "FILTER( ";
 			while (activitiesIterator.hasNext()) {
 				// Printing activities System.out.println(activities.get(i));
+				String currentActivity = null;
 				try {
-					queryString = queryString + "regex(STR(?a),\"" + activitiesIterator.next() + "\",'i') ";
+					currentActivity = activitiesIterator.next();
 				} catch (NoSuchElementException e) {
 					e.printStackTrace();
 				}
+				
+				if (currentActivity.equals("hiking"))
+					activityChoice = hiking;
+				if (currentActivity.equals("surfing"))
+					activityChoice = surfing;
+				if (currentActivity.equals("skiing"))
+					activityChoice = skiing;
+				if (currentActivity.equals("shopping"))
+					activityChoice = shopping;
+				if (currentActivity.equals("sightseeing"))
+					activityChoice = sightSeeing;
+
+				queryString = queryString + "( ?activity=<" + activityChoice + "> ) ";
 
 				if (activitiesIterator.hasNext())
-					queryString += " && ";
+					queryString += " || ";
 			}
 			queryString += ") .";
 
