@@ -267,7 +267,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		 *	:: activity type <matched--with> acitivitylist.get(position) ::
 		 *	:: FILTER( (?type=traveldest:Skiing) || (?type=traveldest:Surfing) ) . ::
 		 */
-		if (activities != null) {
+		if (userConstraints.getActivities() != null) {
 
 			Iterator<String> activitiesIterator = userConstraints.getActivities().iterator();
 			// Iterate through activities and append the activities to the query
@@ -275,7 +275,6 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 			queryString += "?x <" + hasActivity + "> ?a . " + "?a <" + type + "> ?activity . " + "FILTER( ";
 			while (activitiesIterator.hasNext()) {
 				
-				String currentActivity = null;
 				String currentActivity = null;
 				try {
 					currentActivity = activitiesIterator.next();
