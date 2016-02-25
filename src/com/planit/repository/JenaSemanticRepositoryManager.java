@@ -261,17 +261,21 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 					+ sPoolOpen + ") . ";
 
 		String activityChoice = null;
-		ArrayList<String> activities = new ArrayList<String>();
-		activities = userConstraints.getActivities();
-
+		
+		/**
+		 *	Creating query from the activities list.
+		 *	:: activity type <matched--with> acitivitylist.get(position) ::
+		 *	:: FILTER( (?type=traveldest:Skiing) || (?type=traveldest:Surfing) ) . ::
+		 */
 		if (activities != null) {
 
-			Iterator<String> activitiesIterator = activities.iterator();
+			Iterator<String> activitiesIterator = userConstraints.getActivities().iterator();
 			// Iterate through activities and append the activities to the query
 			// string
 			queryString += "?x <" + hasActivity + "> ?a . " + "?a <" + type + "> ?activity . " + "FILTER( ";
 			while (activitiesIterator.hasNext()) {
-				// Printing activities System.out.println(activities.get(i));
+				
+				String currentActivity = null;
 				String currentActivity = null;
 				try {
 					currentActivity = activitiesIterator.next();
@@ -279,6 +283,19 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 					e.printStackTrace();
 				}
 				
+				if (currentActivity.equals("hiking"))
+					activityChoice = hiking;
+				if (currentActivity.equals("surfing"))
+					activityChoice = surfing;
+				if (currentActivity.equals("skiing"))
+					activityChoice = skiing;
+				if (currentActivity.equals("shopping"))
+					activityChoice = shopping;
+				if (currentActivity.equals("sightseeing"))
+					activityChoice = sightSeeing;
+
+				queryString = queryString + "( ?activity=<" + activityChoice + "> ) ";
+
 				if (currentActivity.equals("hiking"))
 					activityChoice = hiking;
 				if (currentActivity.equals("surfing"))
