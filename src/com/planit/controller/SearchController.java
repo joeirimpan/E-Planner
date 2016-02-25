@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.planit.model.UserConstraints;
@@ -22,7 +23,7 @@ public class SearchController {
 	public SearchController() {
 		this.destinations = new ArrayList<>();
 	}
-
+	
 	@RequestMapping(value = "/search.html", method = RequestMethod.GET)
 	public ModelAndView initApp() {
 		ModelAndView model = new ModelAndView("search", "userconstraints", new UserConstraints());
