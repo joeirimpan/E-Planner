@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
+import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.ontology.OntResource;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -155,7 +156,7 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 
 	public Object loadModel() {
 
-		OntModel m = ModelFactory.createOntologyModel();
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF);
 		// load model from files
 		// first load ontologies into model
 		// Iterator i =
