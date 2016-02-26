@@ -65,7 +65,15 @@
 
         <div class="row">
           <div class="col s6">Parking Selected</div>
-          <div class="col s6">${userconstraints.parkingSelected}</div>
+       
+			<c:choose>
+			  <c:when test="${userconstraints.parkingSelected == false}">
+			   	<div class="col s6">Not Selected</div>
+			  </c:when>
+			  <c:otherwise>
+			    <div class="col s6">Selected</div>
+			  </c:otherwise>
+			</c:choose>
         </div>
 
         <div class="row">
@@ -80,12 +88,26 @@
 
         <div class="row">
           <div class="col s6">Swimming Pool</div>
-          <div class="col s6">${userconstraints.sPoolSelected}</div>
+			<c:choose>
+			  <c:when test="${userconstraints.sPoolSelected == false}">
+			   	<div class="col s6">Not Selected</div>
+			  </c:when>
+			  <c:otherwise>
+			    <div class="col s6">Selected</div>
+			  </c:otherwise>
+			</c:choose>
         </div>
 
         <div class="row">
           <div class="col s6">Fitness Room</div>
-          <div class="col s6">${userconstraints.fitnessRoomSelected}</div>
+			<c:choose>
+			  <c:when test="${userconstraints.fitnessRoomSelected == false}">
+			   	<div class="col s6">Not Selected</div>
+			  </c:when>
+			  <c:otherwise>
+			    <div class="col s6">Selected</div>
+			  </c:otherwise>
+			</c:choose>
         </div>
 
         <div class="row">
