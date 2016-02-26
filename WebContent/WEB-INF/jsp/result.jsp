@@ -128,7 +128,6 @@
     
     <script type="text/javascript">
     string.replace(/false/g,'str2')
-
     </script>
 </body>
 </html>
