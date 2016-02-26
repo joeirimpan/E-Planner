@@ -49,10 +49,71 @@
 	</table> 
 -->
 <div class="row">
-    <div class="col s4 white-text">a
+	<div class="col s1 white-text">a</div>
+    <div class="col s6 card-panel teal lighten-4" style="font-size:20px;font-weight:bold;">
+<%--     		${queryresult} --%>
+    	<br>
+		<c:forEach items="${queryresult}" var="map">
+			  <c:if test="${map.localName!=NULL}">
+			  	<div class="row">
+				   	<div class="col s4">Destination</div>
+				   	<div class="col s6">${map.localName}</div>
+			   	</div>
+				  </c:if>
+			  <c:if test="${map.skiing!=NULL}">
+			  	<div class="row">
+				   	<div class="col s4">Skiing</div>
+				   	<div class="col s6">${map.skiing}</div>
+			   	</div>
+			  </c:if>
+			  <c:if test="${map.surfing!=NULL}">
+			  	<div class="row">
+				   	<div class="col s4">Surfing</div>
+				   	<div class="col s6">${map.surfing}</div>
+			   	</div>
+			  </c:if>
+			  <c:if test="${map.hiking!=NULL}">
+			  	<div class="row">
+				   	<div class="col s4">Hiking</div>
+				   	<div class="col s6">${map.hiking}</div>
+			   	</div>
+			  </c:if>
+			  <c:if test="${map.sightSeeing!=NULL}">
+			  	<div class="row">
+				   	<div class="col s4">Sight Seeing</div>
+				   	<div class="col s6">${map.sightSeeing}</div>
+			   	</div>
+			  </c:if>
+			  <c:if test="${map.shopping!=NULL}">
+			  	<div class="row">
+				   	<div class="col s4">Showing</div>
+				   	<div class="col s6">${map.shopping}</div>
+			   	</div>
+			  </c:if>
+			  <c:if test="${map.destinationURI!=NULL}">
+			  	<div class="row">
+				   	<div class="col s4">Destination URI</div>
+				   	<div class="col s6">${map.destinationURI}</div>	
+			   	</div>
+			  </c:if>
+			  <c:if test="${map.uri!=NULL}">
+			  	<div class="row" style="font-size:15px">
+				   	<div class="col s4">URI</div>
+				   	<div class="col s6">${map.uri}</div>
+			   	</div>
+			  </c:if>
+
+			
+		<%--     <c:forEach items="${map}" var="entry"> --%>
+		    	
+		<%--         ${entry.key} --%>
+		<%--         ${entry.value}<br> --%>
+		<%--     </c:forEach> --%>
+		</c:forEach>
     </div>
-    <div class="col s6">
- 
+    <div class="col s1 white-text">a</div>
+    <div class="col s3 card-panel">
+ 		<br>
         <div class="row">
           <div class="col s6">Destination Name</div>
           <div class="col s6">${userconstraints.destinationName}</div>
@@ -119,16 +180,12 @@
 </div>
         <!-- Page Content goes here -->
 	
-	<h2>Query Result</h2>
+<%-- 	<h2>Query Result</h2>
 	<br>
 	<h3>
-	${queryresult}
-	</h3> 
 
-    
-    <script type="text/javascript">
-    string.replace(/false/g,'str2')
+	</h3>  --%>
 
-    </script>
+	
 </body>
 </html>
