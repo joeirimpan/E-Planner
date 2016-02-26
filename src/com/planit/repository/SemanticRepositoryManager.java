@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
+import com.planit.service.BaseService;
 import com.planit.util.PropertyManager;
 
 
-public class SemanticRepositoryManager {
+public abstract class SemanticRepositoryManager implements BaseService {
 	
 	
 	static final Properties defaultProps = new Properties();
@@ -84,7 +86,20 @@ public class SemanticRepositoryManager {
 	final String fourStarRating = new StringBuffer(baseTravel).append("#FourStarRating").toString();
 	final String fiveStarRating = new StringBuffer(baseTravel).append("#FiveStarRating").toString();
 	
+	abstract public Object getModel();
+	abstract public Object loadModel();
+	abstract public void writeModelIntoFile();
+	abstract public List viewDestinations();
+	abstract public String loadProperties(Object model);
+	abstract public List executeSearch (String x, String y, String yName);
+	abstract public Map viewDetails (String resourceURI);
+	abstract public boolean insertNewDestination(Map destination);
+	abstract public void deleteStatements(String[] resourceURIs);
 	
+public void load() {
+	  
+		
+	}
 	/*ontologyFiles=travel_dest.owl
 	kbFiles=travel_d.owl,travel_new.owl*/
 
