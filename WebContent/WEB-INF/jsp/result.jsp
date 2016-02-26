@@ -116,7 +116,7 @@
         </div>
     </div>
 
-    
+</div>
         <!-- Page Content goes here -->
 	
 	<h2>Query Result</h2>
