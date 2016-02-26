@@ -295,19 +295,6 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 
 				queryString = queryString + "( ?activity=<" + activityChoice + "> ) ";
 
-				if (currentActivity.equals("hiking"))
-					activityChoice = hiking;
-				if (currentActivity.equals("surfing"))
-					activityChoice = surfing;
-				if (currentActivity.equals("skiing"))
-					activityChoice = skiing;
-				if (currentActivity.equals("shopping"))
-					activityChoice = shopping;
-				if (currentActivity.equals("sightseeing"))
-					activityChoice = sightSeeing;
-
-				queryString = queryString + "( ?activity=<" + activityChoice + "> ) ";
-
 				if (activitiesIterator.hasNext())
 					queryString += " || ";
 			}
