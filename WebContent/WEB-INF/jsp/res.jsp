@@ -1,0 +1,123 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<html>
+<head>
+    <title>Spring MVC Form Handling</title>
+</head>
+<body>
+
+<h2>Submitted Student Information</h2>
+   <table>
+    <tr>
+        <td>Name</td>
+        <td>${name}</td>
+    </tr>
+    <tr>
+        <td>Destination</td>
+        <td>${age}</td>
+    </tr>
+    <tr>
+        <td>Board</td>
+        <td>${board}</td>
+    </tr>
+     <tr>
+        <td>Nam</td>
+        <td>${nam}</td>
+    </tr>
+     <tr>
+        <td>AccomodationType</td>
+        <td>${accomodationType}</td>
+    </tr>
+      <tr>
+        <td>RatingSelected</td>
+        <td>${ratingSelected}</td>
+    </tr>
+      <tr>
+        <td>ParkingSelected</td>
+        <td>${parkingSelected}</td>
+    </tr>
+      <tr>
+        <td>Spoolselected</td>
+        <td>${sPoolSelected}</td>
+    </tr>
+      <tr>
+        <td>FitnessRoom</td>
+        <td>${fitnessRoomSelected}</td>
+    </tr>
+      <tr>
+        <td>Hiking</td>
+        <td>${hiking}</td>
+    </tr>
+      <tr>
+        <td>HikingName</td>
+        <td>${hikingName}</td>
+    </tr>
+      <tr>
+        <td>sightseeing</td>
+        <td>${sightseeing}</td>
+    </tr>
+      <tr>
+        <td>sightseeingName</td>
+        <td>${sightseeingName}</td>
+    </tr>
+      <tr>
+        <td>surfing</td>
+        <td>${surfing}</td>
+    </tr>
+      <tr>
+        <td>surfingName</td>
+        <td>${surfingName}</td>
+    </tr>
+    <tr>
+        <td>skiing</td>
+        <td>${skiing}</td>
+    </tr>
+    <tr>
+        <td>skiingName</td>
+        <td>${skiingName}</td>
+    </tr>
+    <tr>
+        <td>shopping</td>
+        <td>${shopping}</td>
+    </tr>
+    <tr>
+        <td>shoppingName</td>
+        <td>${shoppingName}</td>
+    </tr>
+    <tr>
+        <td>bus</td>
+        <td>${bus}</td>
+    </tr>
+     <tr>
+        <td>busName</td>
+        <td>${busName}</td>
+    </tr>
+     <tr>
+        <td>train</td>
+        <td>${train}</td>
+    </tr>
+     <tr>
+        <td>trainName</td>
+        <td>${trainName}</td>
+    </tr>
+     <tr>
+        <td>airplane</td>
+        <td>${airplane}</td>
+    </tr>
+     <tr>
+        <td>airplaneName</td>
+        <td>${airplaneName}</td>
+    </tr>
+     <tr>
+        <td>car</td>
+        <td>${car}</td>
+    </tr>
+      <tr>
+        <td>VALUE</td>
+        <td>${value}</td>
+    </tr>
+</table>  
+<h2> <title>View Destinations</title> </h2>
+ <body> <a href="view">Click Here</a> </body> </html>
+
+</body>
+</html>
