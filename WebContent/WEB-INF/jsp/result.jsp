@@ -1,15 +1,11 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>Output</title>
-    <link href="${pageContext.request.contextPath}/resources/css/materialize.css" rel="stylesheet" >
-    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/materialize.js"></script>
-</head>
-<body>
 
-<h2>Result</h2>
+<%@ include file="/WEB-INF/jsp/header.jsp" %>
+
+
+<div class="center teal-text "><h3>Result</h3></div>
+<!--
    <table>
     <tr>
         <td>Destination Name</td>
@@ -34,11 +30,6 @@
     <tr>
     	<td>Activities</td>
     	<td>${userconstraints.activities}</td>
-    	<%-- <c:forEach items="${userconstraints.activities}" var="activity">
-    	<tr>
-      	<td><c:out value="${activity}" /></td>
-    	</tr>
-  		</c:forEach> --%>
   	</tr>
     
     <tr>
@@ -56,11 +47,66 @@
         <td>${userconstraints.transport}</td>
     </tr>
 	</table> 
+-->
+<div class="row">
+    <div class="col s4 white-text">a
+    </div>
+    <div class="col s6">
+ 
+        <div class="row">
+          <div class="col s6">Destination Name</div>
+          <div class="col s6">${userconstraints.destinationName}</div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">Selected Rating</div>
+          <div class="col s6">${userconstraints.ratingSelected}</div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">Parking Selected</div>
+          <div class="col s6">${userconstraints.parkingSelected}</div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">Food Board</div>
+          <div class="col s6">${userconstraints.board}</div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">Activities</div>
+          <div class="col s6">${userconstraints.activities}</div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">Swimming Pool</div>
+          <div class="col s6">${userconstraints.sPoolSelected}</div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">Fitness Room</div>
+          <div class="col s6">${userconstraints.fitnessRoomSelected}</div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">Transport Service</div>
+          <div class="col s6">${userconstraints.transport}</div>
+        </div>
+    </div>
+
+    
+        <!-- Page Content goes here -->
 	
 	<h2>Query Result</h2>
 	<br>
 	<h3>
 	${queryresult}
 	</h3> 
+
+    
+    <script type="text/javascript">
+    string.replace(/false/g,'str2')
+
+    </script>
 </body>
 </html>
