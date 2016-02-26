@@ -268,8 +268,10 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		 *	:: activity type <matched--with> acitivitylist.get(position) ::
 		 *	:: FILTER( (?type=traveldest:Skiing) || (?type=traveldest:Surfing) ) . ::
 		 */
-		if (userConstraints.getActivities() != null) {
+		if (!userConstraints.getActivities().isEmpty()) {
 
+			System.out.println("Activities Not Empty");
+			
 			Iterator<String> activitiesIterator = userConstraints.getActivities().iterator();
 			// Iterate through activities and append the activities to the query
 			// string
@@ -348,8 +350,11 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 
 			// Test Query - Status -Working
 			// Adds activities with the spot name to the Map
-			executeActivityQuery(localName, userConstraints.getActivities(), m);
-
+			if (!userConstraints.getActivities().isEmpty()) {
+				System.out.println("Activities Not Empty");
+				executeActivityQuery(localName, userConstraints.getActivities(), m);
+			}
+			
 			l.add(m);
 			System.out.println("result: " + m);
 		}
