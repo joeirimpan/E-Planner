@@ -4,7 +4,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="com.planit.util.KIMClientConstants"%>
-<%@ page import="com.hp.hpl.jena.rdf.model.impl.ResourceImpl"%>
+<%@ page import="org.apache.jena.rdf.model.impl.ResourceImpl"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
