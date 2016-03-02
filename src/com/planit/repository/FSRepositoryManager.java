@@ -12,9 +12,7 @@ import com.planit.service.ServiceManager;
 import com.planit.util.FileUtil;
 import com.planit.util.RepositoryException;
 
-/**
- * @author Agaton
- */
+
 public class FSRepositoryManager implements RepositoryManager {
     
 	static Logger log = Logger.getLogger(FSRepositoryManager.class);
