@@ -9,10 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.PropertyConfigurator;
 
-/**
- * @author Danica
- *
- */
+
 public class ServiceInitServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3256726165010986295L;
