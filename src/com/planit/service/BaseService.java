@@ -18,5 +18,4 @@ public interface BaseService {
      *
      * @return The service manager.
      */
-    ServiceManager getServiceManager();
 }
