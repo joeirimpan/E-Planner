@@ -5,13 +5,14 @@
 <%@ page import="java.util.HashMap"%>
 <%@ page import="java.util.Set"%>
 <%@ page import="java.util.Iterator"%>
+<%@ include file="/WEB-INF/jsp/header.jsp" %>
 <html>
 <head>
 </head>
 <body>
 <div class="wrapper">
     <div id="mainContent">
-	<h3>Show details page</h3>
+	<div class="center teal-text"><h3>Show Details Page</h3></div>
     <table class="mainTable">
     <% if (request.getAttribute("resource") != null) { %>
     <tr><th>Object:</th>

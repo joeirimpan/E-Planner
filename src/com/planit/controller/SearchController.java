@@ -20,14 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.planit.configuration.AppConfig;
 import com.planit.model.Student;
 import com.planit.model.UserConstraints;
 import com.planit.model.View;
 import com.planit.repository.JenaSemanticRepositoryManager;
-import com.planit.repository.RepositoryManager;
-import com.planit.repository.SemanticRepositoryManager;
-import com.planit.service.ServiceManager;
 import com.planit.util.KIMClientConstants;
 
 
@@ -108,7 +104,7 @@ public class SearchController {
 	   }
 	 
 	   
-	   @RequestMapping(value = "/deleteDestinations", method = RequestMethod.POST)
+	   @RequestMapping(value = "/deleteDestinations.html", method = RequestMethod.POST)
 	   public String deleteDestinations(@ModelAttribute("Spring.web")View view, 
 	   ModelMap model) throws UnsupportedEncodingException {
 		   

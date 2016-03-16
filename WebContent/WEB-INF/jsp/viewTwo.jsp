@@ -6,11 +6,12 @@
 <%@ page import="com.planit.util.KIMClientConstants"%>
 <%@ page import="org.apache.jena.rdf.model.impl.ResourceImpl"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/WEB-INF/jsp/header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>View destinations</title>
+<div class="center teal-text"><h3>ViewDestination</h3></div>
 <%--<link rel="stylesheet" href="resources/default.css" type="text/css"> --%>
 <script language="javascript">
 
@@ -19,17 +20,18 @@
 <body>
 <div class="wrapper">
 	<div id="mainContent">
-	<h3>View destinations</h3>
-	<form:form method="POST" action="/Form/deleteDestinations">
-	<div class="message">Selected kb is: <%=request.getSession().getAttribute("kbModel")!=null?"kbName":""%>
-    </div>
+	<form:form method="POST" action="/E-Planner/deleteDestinations.html">
+	
     	<%List list = (ArrayList) request.getAttribute("resultsList");		
-			if (list.size() > 0) {%>
+			if (list.size() > 0) {
+			int x=0;
+			
+			%>
 	<table class="mainTable">
 	    <tr>
-			<th>View resource</th>
-			<th>View/Edit</th>
-			<th>Delete</th>
+			<th><h4>View resource</h4></th>
+			<th><h4>View/Edit</h4></th>
+			<th><h4>Delete</h4></th>
 		</tr>
 		<!-- list of folders -->
 	
@@ -47,10 +49,14 @@
 		<tr>
 	 <td><a href="showDetails.do?resourceURI=<%=re%>">view resource</a></td>
 			<td><a href="/travelguides/updateDestination.do?resourceURI=<%=re%>" ><%=r.getLocalName()%></a></td>
-			<td class="right">
-			<form:checkbox path="resourceURI" value="<%=re%>" /></td>
+			<form  action="/E-Planner/deleteDestinations.html" method="post">
+			
+			<td><input  type="checkbox" id="DeleteSelected<%=x%>" value="<%=re%>" name="resourceURI"/>
+          <label for="DeleteSelected<%=x%>">Delete</label>
+          </td>
 		</tr>
-		<%}%>
+		<%
+		x++;}%>
 		<tr>
 			<td colspan="2">&nbsp;</td>
 			<td><input class="btn" type="submit" value="Delete" /></td>
