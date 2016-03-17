@@ -94,16 +94,16 @@
 <div class="col m12">
 	    <div class="row">
         <div class="input-field col s12">
-          <input id="Name" type="text" class="validate">
-          <label for="Name">Destination Name</label>
+          <input id="Name" type="text" class="validate" >
+<!--           <label for="Name">Destination Name</label> -->
         </div>
       </div>
-       <div class="row">
+       <!-- <div class="row">
         <div class="input-field col s12">
           <input id="Age" type="text" class="validate">
           <label for="Age">Destination URL</label>
         </div>
-      </div>
+      </div> -->
     
       </div>
  <div class="center teal-text"><h3>Hotel Details</h3></div>
@@ -158,11 +158,17 @@
       <div class="center teal-text"><h4>Activities You Have..</h4></div>
        <div class="row">
         <div class="input-field col s12">
-           <p>
+        <div class="row">
+        	<div class="input-field col s3">
           <input type="checkbox" class="filled-in" id="hikingSelected" name="hikingSelected"/>
           <label for="hikingSelected">hiking</label>
+          	</div>
+          	<div class="input-field col s3">
+				<input id="Name" type="text" class="validate">
+          		
+          	</div>
          
-        </p> 
+        </div> 
         <p>
           <input type="checkbox"class="filled-in" id="surfingSelected" name="suringSelected"/>
           <label for="surfingSelected">surfing</label>
@@ -205,12 +211,27 @@
 </div>
 </div>
 </form>
-
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.geocomplete.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     // Select - Single
     $('select').material_select();
 });
+
+$(function(){
+    
+    $("#Name").geocomplete()
+      .bind("geocode:result", function(event, result){
+        
+      })
+      .bind("geocode:error", function(event, status){
+        
+      })
+      .bind("geocode:multiple", function(event, results){
+      
+      });
+  });
 </script>
 
 </body>
