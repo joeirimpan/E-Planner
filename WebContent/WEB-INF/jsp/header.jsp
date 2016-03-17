@@ -9,13 +9,20 @@
 <body>
 
 <nav>
-  <div class="nav-wrapper teal">
-    <a href="#!" class="brand-logo">E-Planner</a>
+  <div class="nav-wrapper  light-blue darken-4">
+    <a href="#!" font-style="italic" class="brand-logo">E-Planner</a>
+    
     <ul class="right hide-on-med-and-down">
-      <li><a class="dropdown-button" href="/E-Planner/search
-      .html" data-activates="dropdown2">Search</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Add Destination</a></li>
-    </ul>
+    
+      <li><a class="dropdown  btn-large waves-effect waves-light light-blue darken-4"  href="#" data-activates="dropdown1"><i class="material-icons right">cloud</i>admin</a></li>
+</ul>
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+    
   </div>
 </nav>
