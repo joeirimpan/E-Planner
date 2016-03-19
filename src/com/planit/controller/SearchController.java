@@ -1,6 +1,13 @@
 package com.planit.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,14 +17,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jena.atlas.json.JsonObject;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.planit.configuration.AppConfig;
@@ -31,7 +38,7 @@ import com.planit.service.ServiceManager;
 import com.planit.util.KIMClientConstants;
 
 
-@Controller
+@RestController
 public class SearchController {
 
 	private List<Map<String, String>> destinations;
@@ -45,6 +52,57 @@ public class SearchController {
 		ModelAndView model = new ModelAndView("search", "userconstraints", new UserConstraints());
 		return model;
 	}
+	
+	
+	@RequestMapping(value = "/addConstraints.html", method = RequestMethod.POST)
+	public ModelAndView addConstraints(@ModelAttribute("userconstraints") UserConstraints userConstraints) {
+
+		System.out.println("destinationName :" + userConstraints.getDestinationName());
+		System.out.println("ratingSelected :" + userConstraints.getRatingSelected());
+		System.out.println("parkingSelected :" + userConstraints.isParkingSelected());
+		System.out.println("board :" + userConstraints.getBoard());
+		System.out.println("activities :" + userConstraints.getActivities());
+		System.out.println("sPoolSelected :" + userConstraints.issPoolSelected());
+		System.out.println("fitnessRoomSelected :" + userConstraints.isFitnessRoomSelected());
+		System.out.println("transport :" + userConstraints.getTransport());
+
+		JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
+		destinations = repomanager.searchDestinations(userConstraints);
+
+		//Test
+//		Map<String,String> destinationmap=null;
+//		for (int i = 0; i < destinations.size(); i++){
+//			destinationmap = destinations.get(i);
+//			String place1 = destinationmap.get(userConstraints.getActivities().get(0));
+//			String place2 = destinationmap.get(userConstraints.getActivities().get(0));
+//			URL url;
+//			String line, outputString = "";
+//			try {
+//				
+//				url = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?origins="+place1+"|Australia&destinations="+place2+"|Australia");
+//				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//				conn.setRequestMethod("GET");
+//				BufferedReader reader;
+//				reader = new BufferedReader(
+//				new InputStreamReader(conn.getInputStream()));
+//				while ((line = reader.readLine()) != null) {
+//				     outputString += line;
+//				}
+//				
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			JsonObject jsonobject = new JsonObject();
+//		}
+		
+		ModelAndView model = new ModelAndView("result");
+		model.addObject("queryresult", destinations);
+		return model;
+
+	}
+	
+	
 	
 	 @RequestMapping(value = "/student", method = RequestMethod.GET)
 	   public ModelAndView student() {
@@ -307,30 +365,8 @@ public class SearchController {
 	      
 	      return "res";
 	   }
+	   
 
-	@RequestMapping(value = "/addConstraints.html", method = RequestMethod.POST)
-	public ModelAndView addConstraints(@ModelAttribute("userconstraints") UserConstraints userConstraints,
-			BindingResult result, Model model1) {
-
-		System.out.println("destinationName :" + userConstraints.getDestinationName());
-		System.out.println("ratingSelected :" + userConstraints.getRatingSelected());
-		System.out.println("parkingSelected :" + userConstraints.isParkingSelected());
-		System.out.println("board :" + userConstraints.getBoard());
-		System.out.println("activities :" + userConstraints.getActivities());
-		System.out.println("sPoolSelected :" + userConstraints.issPoolSelected());
-		System.out.println("fitnessRoomSelected :" + userConstraints.isFitnessRoomSelected());
-		System.out.println("transport :" + userConstraints.getTransport());
-
-		JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
-		destinations = repomanager.searchDestinations(userConstraints);
-
-		for (int i = 0; i < destinations.size(); i++)
-			System.out.println(destinations.get(i));
-
-		ModelAndView model = new ModelAndView("result");
-		model.addObject("queryresult", destinations);
-		return model;
-
-	}
+	
 
 }
