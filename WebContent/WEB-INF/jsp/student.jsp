@@ -1,127 +1,238 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<html>
-<head>
-    <title>Spring MVC Form Handling</title>
-</head>
-<body>
 
-<h2>Insert New Destination</h2>
-<form:form method="POST" action="/Form/addStudent">
-   <table>
+
+<%@ include file="/WEB-INF/jsp/header.jsp" %>
+
+<div class="center teal-text"><h3>Insert New Destination</h3></div>
+<%-- <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
+
+<div class="row">
+<div class="col m3 white-text">a</div>
+<div class="col m6 card-panel">
+   	<table>   
     <tr>
-        <td><form:label path="name">Name</form:label></td>
-        <td><form:input path="name" /></td>
+        <td><form:label path="Name"><h4>Destination Name</h4></form:label></td>
+        <td><form:input path="Name" /></td>
     </tr>
-    <tr>
-        <td><form:label path="age">Destination URL</form:label></td>
-        <td><form:input path="age" /></td>
+     <tr>
+        <td><form:label path="Age"><h4>Destination URL</h4></form:label></td>
+        <td><form:input path="Age" /></td>
     </tr>
-    
-    <tr><th colspan="2">Accommodation data:</th></tr>
-    
-        <tr><td colspan="2">
-        <table class="mainTable">
-               <tr>
-               <td><form:label path="accomodationType">Select Type:</form:label></td>
-               <td>
-               <form:select path="accomodationType">
-               <form:option value="hotel">Hotel</form:option>
-               </form:select>
-               </td>
-               
-               <td><form:label path="nam">name</form:label></td>
-               <td><form:input path="nam" /></td>
-               
-               <td><form:label path="ratingSelected">Select Rating:</form:label></td>
-               <td><form:select path="ratingSelected">
-               <form:option value='1' label="one star rating"/>	
-                 <form:option value='2' label="two star rating"/>
-                   <form:option value='3' label="three star rating"/>
-                     <form:option value='4' label="four star rating"/>
-                       <form:option value='5' label="five star rating"/>
-               </form:select>
-               </td>
-           
-               
-               <td colspan="2"></td></tr>
-               <tr><td colspan="2"></td></tr>
-               <tr>
-               <td colspan="2"><form:label path="parkingSelected">Please provide the information if the hotel has its own parking place:</form:label></td>
-               <td><form:select path="parkingSelected">
-               <form:option value="yes">yes</form:option>
-               <form:option value="no">no</form:option>
-               </form:select></td></tr>
-               
-               <tr><td colspan="2"><form:label path="sPoolSelected">Please provide the information if the hotel has its own swimming-pool:</form:label></td>
-               <td><form:select path="sPoolSelected">
-               <form:option value="yes">yes</form:option>
-               <form:option value="no">no</form:option>
-               </form:select></td></tr>
-               
-              <tr><td colspan="2"><form:label path="fitnessRoomSelected">Please provide the information if the hotel has its own fitness room:</form:label></td>
-               <td><form:select path="fitnessRoomSelected">
-               <form:option value="yes">yes</form:option>
-               <form:option value="no">no</form:option>
-               </form:select></td></tr>
-               
-           <tr><td colspan="2"><form:label path="board">Please provide the information if the hotel provides food service:</form:label></td>
-               <td><form:select path="board" multiple="multiple">
-               <form:option value="1">all-inclusive</form:option>
-               <form:option value="2">half-board</form:option>
-               <form:option value="3">full-board</form:option>
-               <form:option value="4">breakfast</form:option>
-               </form:select></td></tr>
-              
-          </table></td>
-        </tr> 
+      
+    <div class="center teal-text"><h3>Hotel Details</h3></div>
+    <div class="row">
+        <div class="input-field col s12">
+          <input id="Name" type="text" class="validate">
+          <label for="Name">Hotel Name</label>
         
-         <tr><th colspan="2">Activities Close To The Destination:</th></tr>
-         <tr><td colspan="2">
-         <table class="mainTable">
-               <tr><td><form:checkbox path="hiking" value="Hiking"/>Hiking</td>
-               <td><form:label path="hikingName">Please insert name of the place for hiking:</form:label></td>
-             <td><form:input path="hikingName"/></td></tr>
-              <tr><td><form:checkbox path="sightseeing" value="Sightseeing"/>Sightseeing</td>
-               <td><form:label path="sightseeingName">Please insert name of the place for sightseeing:</form:label></td>
-               <td><form:input path="sightseeingName" type="textarea"/></td></tr>
-               <tr><td><form:checkbox path="surfing" value="Surfing"/>Surfing</td>
-               <td><form:label path="surfingName">Please insert name of the place for surfing:</form:label></td>
-               <td><form:input path="surfingName" type="textarea"/></td></tr>
-               <tr><td><form:checkbox path="skiing" value="Skiing"/>Skiing</td>
-               <td><form:label path="skiingName">Please insert name of the place for skiing:</form:label></td>
-               <td><form:input path="skiingName" type="textarea"/></td></tr>
-               <tr><td><form:checkbox path="shopping" value="Shopping"/>Shopping</td>
-               <td><form:label path="shoppingName">Please insert name of the place for shopping:</form:label></td>
-               <td><form:input path="shoppingName" type="textarea"/></td></tr>
-        </table>
-         </td></tr>
-         
-         
-        <tr><th colspan="2">Transportation offered for this destination:</th></tr>
-        <tr><td colspan="2">
-        <table>
-               <tr><td><form:checkbox path="bus" value="Bus"/>Bus</td>
-               <td>Please insert name of the transport service:</td>
-               <td><form:input path="busName" type="textarea"/></td></tr>
-               <tr><td><form:checkbox path="train" value="Train"/>Train</td>
-               <td>Please insert name of the transport service:</td>
-               <td><form:input path="trainName"  type="textarea"/></td></tr>
-               <tr><td><form:checkbox path="airplane" value="Airplane"/>Airplane</td>
-               <td>Please insert name of the transport service:</td>
-               <td><form:input path="airplaneName"  type="textarea"/></td></tr>
-               <tr><td colspan="2">
-               <form:checkbox path="car" value="Recommended by car"/>Recommended by car</td>
-               <td></td></tr>
-        </table></td>
-        </tr>
-         
-    
-    <tr>
-        <td colspan="2">
-            <input type="submit" value="Submit"/>
+        <tr>
+        <td><form:label path="ratingSelected">Rating Selected</form:label></td>
+        <td>
+        <form:select path="ratingSelected">
+             <form:option value="one">one star rating</form:option>
+             <form:option value="two">two star rating</form:option>
+             <form:option value="three">three star rating</form:option>
+             <form:option value="four">four star rating</form:option>
+             <form:option value="five">five star rating</form:option>
+        </form:select>
+        
         </td>
     </tr>
-    </table>
-</form:form>
+    <div class="row">
+        <div class="input-field col s12">
+          <select name="board">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="one">All Inclusive</option>
+            <option value="two">Full Board</option>
+            <option value="three">Half Board</option>
+          </select>
+          <label>Food Board</label>
+        </div>
+        <label>Activities</label>
+        <div class="row">
+        <p>
+          <input type="checkbox" id="parkingSelected" name="parkingSelected"/>
+          <label for="parkingSelected">Parking</label>
+        </p>
+      </div>
+       <div class="row">
+        <p>
+          <input type="checkbox" id="sPoolSelected" name="sPoolSelected"/>
+          <label for="sPoolSelected">Swimming Pool</label>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <input type="checkbox" id="fitnessRoomSelected" name="fitnessRoomSelected"/>
+          <label for="fitnessRoomSelected">Fitness Room</label>
+        </p>
+      </div>
+    
+  </table>
+  </div>
+	<div class="row">
+	<div class="col m5 white-text">a</div>
+	<div class="col m2"><input class="btn waves-effect waves-light light-green" type="submit" value="Submit"/></div>
+	<div class="col m5"></div>
+	</div>
+	
+	
+	<br>
+
+</div>
+<div class="col m6></div>
+</div>
+
+</form:form> --%>
+
+<form action="/E-Planner/addConstraints.html" method="post">
+
+
+<div class="row">
+<div class="col m3 white-text">a</div>
+<div class="col m6 card-panel">
+<div class="col m12">
+	    <div class="row">
+        <div class="input-field col s12">
+          <input id="Name" type="text" class="validate" >
+<!--           <label for="Name">Destination Name</label> -->
+        </div>
+      </div>
+       <!-- <div class="row">
+        <div class="input-field col s12">
+          <input id="Age" type="text" class="validate">
+          <label for="Age">Destination URL</label>
+        </div>
+      </div> -->
+    
+      </div>
+ <div class="center teal-text"><h3>Hotel Details</h3></div>
+ <div class="row">
+        <div class="input-field col s12">
+          <input id="Name" type="text" class="validate">
+          <label for="Name">Hotel Name</label>
+        </div>
+        <div class="row">
+        <div class="input-field col s12">
+          <select name="ratingSelected">
+            <option value="" disabled selected>Choose your Rating</option>
+            <option value="one">one star rating</option>
+            <option value="two">two star rating</option>
+            <option value="three">three star rating</option>
+            <option value="four">Four star rating</option>
+            <option value="five">Five star rating</option>
+          </select>
+          <label>Select Rating</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+          <select name="board">
+            <option value="" disabled selected>Select the food board you provide</option>
+            <option value="one">All Inclusive</option>
+            <option value="two">Full Board</option>
+            <option value="three">Half Board</option>
+          </select>
+          <label>Food Board</label>
+        </div>
+      </div>
+      <div class="row">
+      <div class="center teal-text"><h4>Tick if you Provide..</h4></div>
+        <p>
+          <input type="checkbox" id="parkingSelected" name="parkingSelected"/>
+          <label for="parkingSelected">Parking</label>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <input type="checkbox" id="sPoolSelected" name="sPoolSelected"/>
+          <label for="sPoolSelected">Swimming Pool</label>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <input type="checkbox" id="fitnessRoomSelected" name="fitnessRoomSelected"/>
+          <label for="fitnessRoomSelected">Fitness Room</label>
+        </p>
+      </div>
+      <div class="center teal-text"><h4>Activities You Have..</h4></div>
+       <div class="row">
+        <div class="input-field col s12">
+        <div class="row">
+        	<div class="input-field col s3">
+          <input type="checkbox" class="filled-in" id="hikingSelected" name="hikingSelected"/>
+          <label for="hikingSelected">hiking</label>
+          	</div>
+          	<div class="input-field col s3">
+				<input id="Name" type="text" class="validate">
+          		
+          	</div>
+         
+        </div> 
+        <p>
+          <input type="checkbox"class="filled-in" id="surfingSelected" name="suringSelected"/>
+          <label for="surfingSelected">surfing</label>
+        </p> 
+        <p>
+          <input type="checkbox" class="filled-in" id="skiingSelected" name="skiingSelected"/>
+          <label for="skiingSelected">skiing</label>
+        </p> 
+        <p>
+          <input type="checkbox" class="filled-in" id="shoppingSelected" name="shoppingSelected"/>
+          <label for="shoppingSelected">shopping</label>
+        </p>  
+        <p>
+          <input type="checkbox" class="filled-in" id="sightseeingSelected" name="sightseeingSelected"/>
+          <label for="sightseeingSelected">sightseeing</label>
+        </p>      
+        </div>
+      </div>
+      </div>
+      <div class="center teal-text"><h4>Transportation Facilities You Provide</h4></div>
+       <div class="row">
+        <div class="input-field col s12">
+          <select multiple name="activities">
+          <label>Choose What All You Provide..</label>
+            <option value="" disabled selected>Car Preferred</option>
+             <option value="Bus">Bus</option>
+             <option value="Train">Train</option>
+             <option value="Aeroplane">aeroplane</option>
+          </select> 
+        </div>
+      </div>
+      </div>
+   	  <div class="row">
+        <div class="col m5 white-text">a</div>
+        <div class="col m2">
+         <button class="btn waves-effect waves-light" type="submit" name="action">Add</button>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+</form>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.geocomplete.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Select - Single
+    $('select').material_select();
+});
+
+$(function(){
+    
+    $("#Name").geocomplete()
+      .bind("geocode:result", function(event, result){
+        
+      })
+      .bind("geocode:error", function(event, status){
+        
+      })
+      .bind("geocode:multiple", function(event, results){
+      
+      });
+  });
+</script>
+
 </body>
 </html>

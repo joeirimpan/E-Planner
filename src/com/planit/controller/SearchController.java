@@ -27,14 +27,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.planit.configuration.AppConfig;
 import com.planit.model.Student;
 import com.planit.model.UserConstraints;
 import com.planit.model.View;
 import com.planit.repository.JenaSemanticRepositoryManager;
-import com.planit.repository.RepositoryManager;
-import com.planit.repository.SemanticRepositoryManager;
-import com.planit.service.ServiceManager;
 import com.planit.util.KIMClientConstants;
 
 
@@ -104,7 +100,7 @@ public class SearchController {
 	
 	
 	
-	 @RequestMapping(value = "/student", method = RequestMethod.GET)
+	 @RequestMapping(value = "/student.html", method = RequestMethod.GET)
 	   public ModelAndView student() {
 	      return new ModelAndView("student", "command", new Student());
 	   }
@@ -125,16 +121,17 @@ public class SearchController {
 	 */
 	   
 	   
-	   @RequestMapping(value = "/view", method = RequestMethod.GET)
+	   @RequestMapping(value = "/view.html", method = RequestMethod.GET)
 	   public ModelAndView getData(HttpServletRequest request,
 	           HttpServletResponse response) throws Exception {
 		   
-		   ServiceManager serviceManager = AppConfig.serviceManager;
-			 RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
-		     SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
-		   
-		   List<String> list = semanticRepositoryManager.viewDestinations();
-		   request.setAttribute("resultsList", semanticRepositoryManager.viewDestinations());
+	//	   ServiceManager serviceManager = AppConfig.serviceManager;
+	//		 RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
+	//	     SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
+		  
+		     JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
+		   List<String> list = repomanager.viewDestinations();
+		   request.setAttribute("resultsList", repomanager.viewDestinations());
 			//return back to index.jsp
 		//	ModelAndView model = new ModelAndView("viewTwo");
 			
@@ -146,15 +143,16 @@ public class SearchController {
 	   public ModelAndView showDetails(HttpServletRequest request,
 	           HttpServletResponse response) throws Exception {
 		   
-		   ServiceManager serviceManager = AppConfig.serviceManager;
-			 RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
-		     SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
+		//   ServiceManager serviceManager = AppConfig.serviceManager;
+		//	 RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
+		//     SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
 		   
+		     JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
 		     String JSP_DEST = null;
 		        try {
 				String resourceURI = URLDecoder.decode(request.getParameter("resourceURI"), KIMClientConstants.DEFAULT_ENCODING);
 		        request.setAttribute("resource",resourceURI);
-		        request.setAttribute("result",semanticRepositoryManager.viewDetails(resourceURI));
+		        request.setAttribute("result",repomanager.viewDetails(resourceURI));
 		        JSP_DEST="success";
 		        } catch (Exception e) {
 		        	JSP_DEST="error";
@@ -164,7 +162,7 @@ public class SearchController {
 	   }
 	 
 	   
-	   @RequestMapping(value = "/deleteDestinations", method = RequestMethod.POST)
+	   @RequestMapping(value = "/deleteDestinations.html", method = RequestMethod.POST)
 	   public String deleteDestinations(@ModelAttribute("Spring.web")View view, 
 	   ModelMap model) throws UnsupportedEncodingException {
 		   
@@ -172,12 +170,12 @@ public class SearchController {
 		   
 	  Logger log = Logger.getLogger(SearchController.class);
 			   
-	  ServiceManager serviceManager = AppConfig.serviceManager;
-	  RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
-	  SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
-			  
-		 
-	    
+	  //ServiceManager serviceManager = AppConfig.serviceManager;
+	  //RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
+	  //SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
+	
+	  JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
+		
 	     String JSP_DEST = "";
 	 	log.info("Starting  action...");         
 	 	String[] resourceURIs = null;
@@ -193,7 +191,7 @@ public class SearchController {
 	 //    System.out.println("hello: "+view.getResourceURI());
 //	 	 res = view.getResourceURI();
 //	 	 resourceURIs[0]=res;
-	 	 semanticRepositoryManager.deleteStatements(resourceURIs); 
+	 	 repomanager.deleteStatements(resourceURIs); 
 
 	     JSP_DEST = "success";
 	     log.info("Ending action...");  
@@ -209,11 +207,12 @@ public class SearchController {
 		   
 		 Logger log = Logger.getLogger(SearchController.class);
 		   
-		 ServiceManager serviceManager = AppConfig.serviceManager;
-		 RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
-	     SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
-		  
-	     Map destination = new HashMap();
+	//	 ServiceManager serviceManager = AppConfig.serviceManager;
+	//	 RepositoryManager repositoryManager = serviceManager.getRepositoryManager();
+	//     SemanticRepositoryManager semanticRepositoryManager = serviceManager.getSemanticRepositoryManager();
+		
+		JenaSemanticRepositoryManager repomanager = new JenaSemanticRepositoryManager();
+	    Map destination = new HashMap();
 	    String destination_label = null;
 	    String accommodation_label = null;
 	   	String rating_value = null;
@@ -356,7 +355,7 @@ public class SearchController {
 	      
 	      System.out.println(destination_label);
 	      
-	      if (semanticRepositoryManager.insertNewDestination(destination))
+	      if (repomanager.insertNewDestination(destination))
 	        JSP_DEST="success";
 	      else
 	      	JSP_DEST="error";

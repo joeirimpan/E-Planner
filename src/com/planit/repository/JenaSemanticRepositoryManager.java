@@ -38,7 +38,6 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.log4j.Logger;
 
 import com.planit.model.UserConstraints;
-import com.planit.service.ServiceManager;
 import com.planit.util.KIMClientConstants;
 
 
@@ -791,11 +790,10 @@ public class JenaSemanticRepositoryManager extends SemanticRepositoryManager {
 		
 	}
 
-	@Override
-	public ServiceManager getServiceManager() {
+//	public ServiceManager getServiceManager() {
 		// TODO Auto-generated method stub
-		return null;
-	}
+	//	return null;
+	//}
 
 	@Override
 	public String loadProperties(Object model) {

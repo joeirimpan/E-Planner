@@ -7,10 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.PropertyConfigurator;
 
 
-/**
- * @author Agaton
- *
- */
 public class Log4jInitServlet extends HttpServlet {
 
 

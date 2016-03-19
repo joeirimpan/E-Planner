@@ -91,10 +91,10 @@
 <div class="col m6 card-panel">
 <div class="col m12">
 	    <div class="row">
-       <!--  <div class="input-field col s12">
+        <div class="input-field col s12">
           <input id="destinationName" type="text" class="validate">
           <label for="destinationName">Destination Name</label>
-        </div> -->
+        </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
