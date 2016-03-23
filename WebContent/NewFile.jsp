@@ -34,41 +34,42 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
+             <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">What We Do?</h5>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <p class="light">We Give You A Fully Automated Ontology Based Tour Planner, Making Tour Planning A Piece Of Cake. We Develop An Entire Itinerary For You Just Within A Few Minutes..  </p>
           </div>
         </div>
 
-        <div class="col s12 m4">
+      
+
+       
+          <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+             <h2 class="center brown-text"><i class="material-icons">group</i></h2>
             <h5 class="center">User Experience Focused</h5>
 
             <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
           </div>
         </div>
-
-        <div class="col s12 m4">
+         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
+             <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
 
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
+           <h5 class="center">How We Do..?</h5>
+            <p class="light">Our Application Makes Available To You All Its Specialities Through Web Services By Using An Ontology Including All Tourism Details, We Ensure That You Have An Itinerary Of Your Preference And One That Accomodates Your Interests..</p>
+          </div>>
         </div>
       </div>
 
     </div>
   </div>
 
-
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h3 class="header lime-text text-lighten-5  col s12 light">A modern responsive front-end framework based on Material Design</h3>
+          <h3 class="header lime-text text-lighten-5  col s12 light">Now, No More Of Intense Tour Planning!! Just A Few Clicks And You Are Done!!</h3>
         </div>
       </div>
     </div>
@@ -81,8 +82,8 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+          <h4>Why Are We Different..?</h4>
+          <p class="left-align light">We Bring To You A Software Where Your Interests Matter To Us The Most. All We Need Is Your Interests And We Help You Develop An Entire Itinerary For Your Travel. Just Sit Back, Relax And Have Some Fun..!! </p>
         </div>
       </div>
 
@@ -94,7 +95,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h3 class="header lime-text text-lighten-5  col s12 light"> Travel Planning-Simplified!!!</h3>
         </div>
       </div>
     </div>
@@ -103,29 +104,31 @@
 
   <footer class="page-footer brown darken-4">
     <div class="container">
-      <div class="row">
+      <div class="row center">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">Our Experience..</h5>
+          <p class="grey-text text-lighten-4">We Started Working On This Project A few Months Back. It was An Amazing Experience, Getting Together All The Various Elements Required To Put Together This Project. We Hope That This Comes In Handy For All Those Enthusiastic Travellers Out There.. </p>
 
 
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">The Team..</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">Shyamnath Premnath</a></li>
+            <li><a class="white-text" href="#!">Joe Paul</a></li>
+            <li><a class="white-text" href="#!">Minhaj Ahammed</a></li>
+            <li><a class="white-text" href="#!">Paavna Suresh</a></li>
+            <li><a class="white-text" href="#!">Staney Xavier</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
+          <h5><i class="material-icons left" >message</i>">Ping Us..</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">shyamnath.mec@gmail.com</a></li>
+            <li><a class="white-text" href="#!">joeirimpan@gmail.com</a></li>
+            <li><a class="white-text" href="#!">minhaj.mec94@gmail.com</a></li>
+            <li><a class="white-text" href="#!">paavna.mec@gmail.com</a></li>
+            <li><a class="white-text" href="#!">staney94.mec@gmail.com</a></li>
           </ul>
         </div>
       </div>

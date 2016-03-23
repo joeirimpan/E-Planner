@@ -3,7 +3,7 @@
 
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
-<div class="center teal-text"><h3>Insert New Destination</h3></div>
+<div class="center light blue-text"><h3>Insert New Destination</h3></div>
 <%-- <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
 
 <div class="row">
@@ -106,7 +106,7 @@
       </div> -->
     
       </div>
- <div class="center teal-text"><h3>Hotel Details</h3></div>
+ <div class="center light blue-text"><h3>Hotel Details</h3></div>
  <div class="row">
         <div class="input-field col s12">
           <input id="Name" type="text" class="validate">
@@ -137,7 +137,7 @@
         </div>
       </div>
       <div class="row">
-      <div class="center teal-text"><h4>Tick if you Provide..</h4></div>
+      <div class="center light blue-text"><h4>Tick if you Provide..</h4></div>
         <p>
           <input type="checkbox" id="parkingSelected" name="parkingSelected"/>
           <label for="parkingSelected">Parking</label>
@@ -155,7 +155,7 @@
           <label for="fitnessRoomSelected">Fitness Room</label>
         </p>
       </div>
-      <div class="center teal-text"><h4>Activities You Have..</h4></div>
+      <div class="center light blue-text"><h4>Activities You Have..</h4></div>
        <div class="row">
         <div class="input-field col s12">
         <div class="row">
@@ -188,7 +188,7 @@
         </div>
       </div>
       </div>
-      <div class="center teal-text"><h4>Transportation Facilities You Provide</h4></div>
+      <div class="center light blue-text"><h4>Transportation Facilities You Provide</h4></div>
        <div class="row">
         <div class="input-field col s12">
           <select multiple name="activities">
@@ -204,7 +204,7 @@
    	  <div class="row">
         <div class="col m5 white-text">a</div>
         <div class="col m2">
-         <button class="btn waves-effect waves-light" type="submit" name="action">Add</button>
+         <button class="btn-large circle waves-effect waves-light light-blue darken-4" type="submit" name="action">Add</button>
         </div>
       </div>
 </div>
