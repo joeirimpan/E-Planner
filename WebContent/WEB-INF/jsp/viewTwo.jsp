@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<div class="center teal-text"><h3>ViewDestination</h3></div>
+<div class="center light blue-text"><h3>ViewDestination</h3></div>
 <%--<link rel="stylesheet" href="resources/default.css" type="text/css"> --%>
 <script language="javascript">
 
@@ -59,7 +59,7 @@
 		x++;}%>
 		<tr>
 			<td colspan="2">&nbsp;</td>
-			<td><input class="btn" type="submit" value="Delete" /></td>
+			<td><input class="btn circle waves-effect waves-light light-blue darken-4" type="submit" value="Delete" /></td>
 		</tr>
 	</table>
 	<%} else if (list.size() == 0) {%><div class="redtext">Kb <span class="message"><%="kbName"%></span> is empty.</div><%}%>

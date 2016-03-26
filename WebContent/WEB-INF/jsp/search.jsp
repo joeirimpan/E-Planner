@@ -3,7 +3,7 @@
 
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
-<div class="center teal-text"><h3>Search For Destinations</h3></div>
+<div class="center light blue-text"><h3>Search For Destinations</h3></div>
 <%-- <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
 
 <div class="row">
@@ -158,7 +158,7 @@
       <div class="row">
         <div class="col m5 white-text">a</div>
         <div class="col m2">
-         <button class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+         <button class="btn-large circle waves-effect waves-light light-blue darken-4"" type="submit" name="action">Search</button>
         </div>
       </div>
 </div>
