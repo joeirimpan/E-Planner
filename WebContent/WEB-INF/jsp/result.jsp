@@ -4,7 +4,7 @@
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
 
-<div class="center teal-text "><h3>Result</h3></div>
+<div class="center blue-text text-darken-3"><h3>Matching Destinations</h3></div>
 <!--
    <table>
     <tr>
@@ -50,9 +50,16 @@
 -->
 <div class="row">
 	<div class="col s1 white-text">a</div>
-    <div class="col s6 card-panel teal lighten-4" style="font-size:20px;font-weight:bold;">
+    <div class="col s6 card-panel blue lighten-4" style="font-size:20px;font-weight:bold;">
 <%--     		${queryresult} --%>
     	<br>
+    	<c:if test="${empty queryresult}">
+    	<div class="row">
+				   
+				   	<div class="center">No Matching Destinations</div>
+			   	</div>
+    	 </c:if>
+    		  
 		<c:forEach items="${queryresult}" var="map">
 			  <c:if test="${map.localName!=NULL}">
 			  	<div class="row">
@@ -115,8 +122,8 @@
     <div class="col s3 card-panel">
  		<br>
         <div class="row">
-          <div class="col s6">Destination Name</div>
-          <div class="col s6">${userconstraints.destinationName}</div>
+          <div class="center blue-text text-darken-3" style="font-size:20px">User Preferences</div>
+          
         </div>
 
         <div class="row">

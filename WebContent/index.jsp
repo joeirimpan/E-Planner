@@ -14,7 +14,7 @@
           <h5 class="header  lime-text text-lighten-5 col s12 ">Live To Travel.. Keep Calm And Roam Around The World..</h5>
         </div>
         <div class="row center">
-          <a href="http://localhost:8080/E-Planner/search.html" id="download-button" class="btn-large circle waves-effect waves-light light-blue darken-4">Search Your Destination</a>
+          <a href="http://localhost:8080/E-Planner/searchDestinations.html" id="download-button" class="btn-large circle waves-effect waves-light light-blue darken-4">Search Your Destination</a>
         </div>
         <br><br>
 

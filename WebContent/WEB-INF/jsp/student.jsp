@@ -156,37 +156,60 @@
         </p>
       </div>
       <div class="center light blue-text"><h4>Activities You Have..</h4></div>
-       <div class="row">
+       
         <div class="input-field col s12">
-        <div class="row">
-        	<div class="input-field col s3">
-          <input type="checkbox" class="filled-in" id="hikingSelected" name="hikingSelected"/>
-          <label for="hikingSelected">hiking</label>
-          	</div>
-          	<div class="input-field col s3">
-				<input id="Name" type="text" class="validate">
-          		
-          	</div>
-         
-        </div> 
-        <p>
-          <input type="checkbox"class="filled-in" id="surfingSelected" name="suringSelected"/>
+	        <div class="row">
+	        	<div class="input-field col s3">
+	          <input type="checkbox" class="filled-in" id="hikingSelected" name="hikingSelected"/>
+	          <label for="hikingSelected">hiking</label>
+	          	</div>
+	          	<div class="input-field col s3">
+					<input id="Name" type="text" class="validate">
+	          	</div>
+	         
+	        </div> 
+	        <div class="row">
+	        	<div class="input-field col s3">
+	          <input type="checkbox"class="filled-in" id="surfingSelected" name="suringSelected"/>
           <label for="surfingSelected">surfing</label>
-        </p> 
-        <p>
-          <input type="checkbox" class="filled-in" id="skiingSelected" name="skiingSelected"/>
+	          	</div>
+	          	<div class="input-field col s3">
+					<input id="Name" type="text" class="validate">
+	          	</div>
+	         
+	        </div> 
+	        <div class="row">
+	        	<div class="input-field col s3">
+	         <input type="checkbox" class="filled-in" id="skiingSelected" name="skiingSelected"/>
           <label for="skiingSelected">skiing</label>
-        </p> 
-        <p>
-          <input type="checkbox" class="filled-in" id="shoppingSelected" name="shoppingSelected"/>
+	          	</div>
+	          	<div class="input-field col s3">
+					<input id="Name" type="text" class="validate">
+	          	</div>
+	         
+	        </div> 
+	        <div class="row">
+	        	<div class="input-field col s3">
+	          <input type="checkbox" class="filled-in" id="shoppingSelected" name="shoppingSelected"/>
           <label for="shoppingSelected">shopping</label>
-        </p>  
-        <p>
-          <input type="checkbox" class="filled-in" id="sightseeingSelected" name="sightseeingSelected"/>
+	          	</div>
+	          	<div class="input-field col s3">
+					<input id="Name" type="text" class="validate">
+	          	</div>
+	         
+	        </div> 
+	        <div class="row">
+	        	<div class="input-field col s3">
+	          <input type="checkbox" class="filled-in" id="sightseeingSelected" name="sightseeingSelected"/>
           <label for="sightseeingSelected">sightseeing</label>
-        </p>      
-        </div>
-      </div>
+	          	</div>
+	          	<div class="input-field col s3">
+					<input id="Name" type="text" class="validate">
+	          	</div>
+	         
+	        </div>     
+        
+      
       </div>
       <div class="center light blue-text"><h4>Transportation Facilities You Provide</h4></div>
        <div class="row">

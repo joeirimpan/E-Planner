@@ -43,14 +43,14 @@ public class SearchController {
 		this.destinations = new ArrayList<>();
 	}
 	
-	@RequestMapping(value = "/search.html", method = RequestMethod.GET)
+	@RequestMapping(value = "/searchDestinations.html", method = RequestMethod.GET)
 	public ModelAndView initApp() {
 		ModelAndView model = new ModelAndView("search", "userconstraints", new UserConstraints());
 		return model;
 	}
 	
 	
-	@RequestMapping(value = "/addConstraints.html", method = RequestMethod.POST)
+	@RequestMapping(value = "/resultDestinations.html", method = RequestMethod.POST)
 	public ModelAndView addConstraints(@ModelAttribute("userconstraints") UserConstraints userConstraints) {
 
 		System.out.println("destinationName :" + userConstraints.getDestinationName());
@@ -91,7 +91,7 @@ public class SearchController {
 //			}
 //			JsonObject jsonobject = new JsonObject();
 //		}
-		
+		System.out.println("RESULT :" + destinations.toString()+ destinations.isEmpty());
 		ModelAndView model = new ModelAndView("result");
 		model.addObject("queryresult", destinations);
 		return model;
@@ -100,7 +100,7 @@ public class SearchController {
 	
 	
 	
-	 @RequestMapping(value = "/student.html", method = RequestMethod.GET)
+	 @RequestMapping(value = "/insertDestinations.html", method = RequestMethod.GET)
 	   public ModelAndView student() {
 	      return new ModelAndView("student", "command", new Student());
 	   }
@@ -121,7 +121,7 @@ public class SearchController {
 	 */
 	   
 	   
-	   @RequestMapping(value = "/view.html", method = RequestMethod.GET)
+	   @RequestMapping(value = "/manageDestinations.html", method = RequestMethod.GET)
 	   public ModelAndView getData(HttpServletRequest request,
 	           HttpServletResponse response) throws Exception {
 		   

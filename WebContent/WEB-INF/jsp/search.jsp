@@ -2,8 +2,13 @@
 
 
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
+<style>
+li {
+color :#1565C0;
+}
+</style>
 
-<div class="center light blue-text"><h3>Search For Destinations</h3></div>
+<div class="center blue-text text-darken-3"><h3>Search For Destinations</h3></div>
 <%-- <form:form method="POST" action="/E-Planner/addConstraints" commandName="userconstraints" >
 
 <div class="row">
@@ -83,7 +88,7 @@
 
 </form:form> --%>
 
-<form action="/E-Planner/addConstraints.html" method="post">
+<form action="/E-Planner/resultDestinations.html" method="post">
 
 
 <div class="row">
@@ -97,14 +102,14 @@
         </div> -->
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 ">
           <select name="ratingSelected">
             <option value="" disabled selected>Choose your option</option>
-            <option value="one">one star rating</option>
-            <option value="two">two star rating</option>
-            <option value="three">three star rating</option>
-            <option value="four">Four star rating</option>
-            <option value="five">Five star rating</option>
+            <option class="blue-text text-darken-3" value="one">one star rating</option>
+            <option class="blue-text text-darken-3" value="two">two star rating</option>
+            <option class="blue-text text-darken-3" value="three">three star rating</option>
+            <option class="blue-text text-darken-3" value="four">Four star rating</option>
+            <option class="blue-text text-darken-3" value="five">Five star rating</option>
           </select>
           <label>Rating Selected</label>
         </div>
@@ -170,6 +175,7 @@
 $(document).ready(function() {
     // Select - Single
     $('select').material_select();
+    $('').addClass("blue-text");
 });
 </script>
 
