@@ -85,7 +85,7 @@
 
 </form:form> --%>
 
-<form action="/E-Planner/addConstraints.html" method="post">
+<form action="/E-Planner/addStudent" method="post">
 
 
 <div class="row">
@@ -94,7 +94,7 @@
 <div class="col m12">
 	    <div class="row">
         <div class="input-field col s12">
-          <input id="Name" type="text" class="validate" >
+          <input id="destinationName" type="text" class="validate" >
 <!--           <label for="Name">Destination Name</label> -->
         </div>
       </div>
@@ -109,8 +109,8 @@
  <div class="center light blue-text"><h3>Hotel Details</h3></div>
  <div class="row">
         <div class="input-field col s12">
-          <input id="Name" type="text" class="validate">
-          <label for="Name">Hotel Name</label>
+          <input id="accommodationName" type="text" class="validate">
+          <label for="accommodationName">Hotel Name</label>
         </div>
         <div class="row">
         <div class="input-field col s12">
@@ -160,8 +160,18 @@
         <div class="input-field col s12">
 	        <div class="row">
 	        	<div class="input-field col s3">
-	          <input type="checkbox" class="filled-in" id="hikingSelected" name="hikingSelected"/>
-	          <label for="hikingSelected">hiking</label>
+	          <input type="checkbox" class="filled-in" id="hiking" name="hiking"/>
+	          <label for="hiking">hiking</label>
+	          	</div>
+	          	<div class="input-field col s3">
+					<input id="hikingName" type="text" class="validate">
+	          	</div>
+	         
+	        </div> 
+	        <div class="row">
+	        	<div class="input-field col s3">
+	          <input type="checkbox"class="filled-in" id="surfing" name="suring"/>
+          <label for="surfing">surfing</label>
 	          	</div>
 	          	<div class="input-field col s3">
 					<input id="Name" type="text" class="validate">
@@ -170,41 +180,31 @@
 	        </div> 
 	        <div class="row">
 	        	<div class="input-field col s3">
-	          <input type="checkbox"class="filled-in" id="surfingSelected" name="suringSelected"/>
-          <label for="surfingSelected">surfing</label>
+	         <input type="checkbox" class="filled-in" id="skiing" name="skiing"/>
+          <label for="skiing">skiing</label>
 	          	</div>
 	          	<div class="input-field col s3">
-					<input id="Name" type="text" class="validate">
+					<input id="skiingName" type="text" class="validate">
 	          	</div>
 	         
 	        </div> 
 	        <div class="row">
 	        	<div class="input-field col s3">
-	         <input type="checkbox" class="filled-in" id="skiingSelected" name="skiingSelected"/>
-          <label for="skiingSelected">skiing</label>
+	          <input type="checkbox" class="filled-in" id="shopping" name="shopping"/>
+          <label for="shopping">shopping</label>
 	          	</div>
 	          	<div class="input-field col s3">
-					<input id="Name" type="text" class="validate">
+					<input id="shoppingName" type="text" class="validate">
 	          	</div>
 	         
 	        </div> 
 	        <div class="row">
 	        	<div class="input-field col s3">
-	          <input type="checkbox" class="filled-in" id="shoppingSelected" name="shoppingSelected"/>
-          <label for="shoppingSelected">shopping</label>
+	          <input type="checkbox" class="filled-in" id="sightseeing" name="sightseeing"/>
+          <label for="sightseeing">sightseeing</label>
 	          	</div>
 	          	<div class="input-field col s3">
-					<input id="Name" type="text" class="validate">
-	          	</div>
-	         
-	        </div> 
-	        <div class="row">
-	        	<div class="input-field col s3">
-	          <input type="checkbox" class="filled-in" id="sightseeingSelected" name="sightseeingSelected"/>
-          <label for="sightseeingSelected">sightseeing</label>
-	          	</div>
-	          	<div class="input-field col s3">
-					<input id="Name" type="text" class="validate">
+					<input id="sightseeingName" type="text" class="validate">
 	          	</div>
 	         
 	        </div>     
@@ -216,10 +216,10 @@
         <div class="input-field col s12">
           <select multiple name="activities">
           <label>Choose What All You Provide..</label>
-            <option value="" disabled selected>Car Preferred</option>
-             <option value="Bus">Bus</option>
-             <option value="Train">Train</option>
-             <option value="Aeroplane">aeroplane</option>
+            <option value="car" disabled selected>Car Preferred</option>
+             <option value="bus">Bus</option>
+             <option value="train">Train</option>
+             <option value="airplane">aeroplane</option>
           </select> 
         </div>
       </div>
@@ -244,7 +244,7 @@ $(document).ready(function() {
 
 $(function(){
     
-    $("#Name").geocomplete()
+    $("#destinationName").geocomplete()
       .bind("geocode:result", function(event, result){
         
       })
